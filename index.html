@@ -1,0 +1,2575 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SlotPedia — Katalog Game Slot Pragmatic Play & PG Soft + Info RTP</title>
+  <meta name="description" content="Katalog lengkap game slot Pragmatic Play dan PG Soft, info RTP teoretis, volatilitas, dan detail fitur setiap game. Situs informasi, bukan operator judi." />
+  <meta name="theme-color" content="#0b0f1a" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+/* ============ Base ============ */
+:root {
+  --bg: #0b0f1a;
+  --bg-alt: #0f1524;
+  --surface: #131a2b;
+  --surface-2: #1a2338;
+  --border: #232e47;
+  --text: #e7ecf5;
+  --muted: #93a0b8;
+  --gold: #f5c518;
+  --gold-dark: #d9a90c;
+  --pp: #4cc2ff;
+  --pg: #ffb648;
+  --danger: #ff6b6b;
+  --ok: #4ade80;
+  --radius: 14px;
+  --shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+  --font: "Inter", system-ui, -apple-system, sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; }
+input, select { font-family: inherit; }
+
+.container {
+  width: min(1180px, 100% - 2.5rem);
+  margin-inline: auto;
+}
+.container--narrow { width: min(780px, 100% - 2.5rem); }
+
+.grad-text {
+  background: linear-gradient(90deg, var(--gold), #ff8a3d);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ============ Buttons ============ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.25rem;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+  white-space: nowrap;
+}
+.btn:hover { transform: translateY(-2px); }
+.btn:active { transform: translateY(0); }
+
+.btn--primary {
+  background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+  color: #1a1405;
+  box-shadow: 0 6px 20px rgba(245, 197, 24, 0.25);
+}
+.btn--primary:hover { box-shadow: 0 10px 26px rgba(245, 197, 24, 0.35); }
+
+.btn--outline {
+  background: transparent;
+  border-color: var(--border);
+  color: var(--text);
+}
+.btn--outline:hover { border-color: var(--gold); color: var(--gold); }
+
+.btn--ghost { background: transparent; color: var(--muted); }
+.btn--ghost:hover { color: var(--text); }
+
+.btn--lg { padding: 0.85rem 1.7rem; font-size: 1rem; }
+.btn--block { width: 100%; }
+
+/* ============ Header ============ */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(11, 15, 26, 0.82);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+.header.is-scrolled { border-color: var(--border); background: rgba(11, 15, 26, 0.95); }
+
+.header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  height: 68px;
+}
+
+.logo { display: flex; align-items: center; gap: 0.6rem; font-size: 1.1rem; }
+.logo__mark {
+  width: 34px; height: 34px;
+  display: grid; place-items: center;
+  border-radius: 9px;
+  background: linear-gradient(135deg, var(--gold), #ff8a3d);
+  color: #1a1405;
+  font-weight: 800;
+  font-size: 0.85rem;
+}
+.logo__text strong { color: var(--gold); }
+
+.nav { display: flex; gap: 1.75rem; }
+.nav__link {
+  font-size: 0.93rem;
+  color: var(--muted);
+  font-weight: 500;
+  transition: color 0.15s ease;
+}
+.nav__link:hover { color: var(--gold); }
+
+.header__actions { display: flex; align-items: center; gap: 0.6rem; }
+
+.burger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: 0;
+  padding: 6px;
+}
+.burger span { width: 22px; height: 2px; background: var(--text); border-radius: 2px; transition: 0.2s; }
+
+/* ============ Hero ============ */
+.hero { position: relative; overflow: hidden; padding: 5.5rem 0 6rem; }
+
+.hero__bg { position: absolute; inset: 0; pointer-events: none; }
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.35;
+}
+.orb--1 { width: 420px; height: 420px; background: #2563eb; top: -120px; left: -80px; }
+.orb--2 { width: 380px; height: 380px; background: var(--gold); bottom: -140px; right: -60px; opacity: 0.22; }
+.orb--3 { width: 260px; height: 260px; background: #a855f7; top: 40%; left: 55%; opacity: 0.18; }
+
+.hero__inner {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+  background: rgba(245, 197, 24, 0.1);
+  border: 1px solid rgba(245, 197, 24, 0.35);
+  color: var(--gold);
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-bottom: 1.25rem;
+}
+
+.hero h1 {
+  font-size: clamp(2rem, 4.4vw, 3.3rem);
+  line-height: 1.15;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.hero__sub {
+  margin-top: 1.1rem;
+  color: var(--muted);
+  font-size: 1.05rem;
+  max-width: 54ch;
+}
+
+.hero__cta { display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 1.8rem; }
+
+.hero__stats {
+  display: flex;
+  gap: 2.5rem;
+  margin-top: 2.6rem;
+  padding-top: 1.8rem;
+  border-top: 1px solid var(--border);
+}
+.stat__num { display: block; font-size: 1.7rem; font-weight: 800; color: var(--gold); }
+.stat__label { font-size: 0.85rem; color: var(--muted); }
+
+/* hero floating cards */
+.hero__card { position: relative; height: 380px; }
+.mini-card {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 1.1rem 1.3rem;
+  width: 240px;
+  border-radius: var(--radius);
+  background: linear-gradient(160deg, var(--surface-2), var(--surface));
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  animation: float 6s ease-in-out infinite;
+}
+.mini-card__prov { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
+.mini-card strong { font-size: 1.05rem; }
+.mini-card--1 { top: 10px; left: 20px; }
+.mini-card--2 { top: 140px; right: 0; animation-delay: 1.4s; border-color: rgba(255, 182, 72, 0.4); }
+.mini-card--3 { bottom: 10px; left: 50px; animation-delay: 2.8s; }
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+}
+
+.rtp-pill {
+  align-self: flex-start;
+  margin-top: 0.4rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  background: rgba(74, 222, 128, 0.12);
+  border: 1px solid rgba(74, 222, 128, 0.35);
+  color: var(--ok);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+.rtp-pill--lg { font-size: 0.9rem; padding: 0.35rem 0.85rem; margin-top: 0; align-self: center; }
+
+/* ============ Sections ============ */
+.section { padding: 5rem 0; }
+.section--alt { background: var(--bg-alt); }
+
+.section__head { margin-bottom: 2.5rem; max-width: 62ch; }
+.section__head h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); letter-spacing: -0.01em; }
+.section__head p { color: var(--muted); margin-top: 0.5rem; }
+
+/* ============ Provider ============ */
+.provider-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+.provider-card {
+  display: flex;
+  gap: 1.25rem;
+  padding: 1.8rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+.provider-card:hover { transform: translateY(-4px); }
+.provider-card--pp:hover { border-color: var(--pp); }
+.provider-card--pg:hover { border-color: var(--pg); }
+
+.provider-card__icon {
+  flex: 0 0 auto;
+  width: 56px; height: 56px;
+  display: grid; place-items: center;
+  border-radius: 14px;
+  font-weight: 800;
+  font-size: 1.1rem;
+}
+.provider-card--pp .provider-card__icon { background: rgba(76, 194, 255, 0.14); color: var(--pp); border: 1px solid rgba(76, 194, 255, 0.4); }
+.provider-card--pg .provider-card__icon { background: rgba(255, 182, 72, 0.14); color: var(--pg); border: 1px solid rgba(255, 182, 72, 0.4); }
+
+.provider-card__body h3 { font-size: 1.25rem; }
+.provider-card__body p { color: var(--muted); font-size: 0.93rem; margin-top: 0.5rem; }
+
+.provider-card__meta {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  margin: 1rem 0 1.2rem;
+  font-size: 0.88rem;
+  color: var(--muted);
+}
+.provider-card__meta strong { color: var(--text); }
+
+/* ============ Toolbar ============ */
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  align-items: center;
+  margin-bottom: 1.25rem;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  flex: 1 1 240px;
+  padding: 0 0.9rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--muted);
+  transition: border-color 0.15s ease;
+}
+.search:focus-within { border-color: var(--gold); }
+.search input {
+  flex: 1;
+  background: none;
+  border: 0;
+  outline: none;
+  padding: 0.7rem 0;
+  color: var(--text);
+  font-size: 0.95rem;
+}
+.search input::placeholder { color: var(--muted); }
+.search input::-webkit-search-cancel-button { display: none; }
+
+.chips { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.chip {
+  padding: 0.55rem 1rem;
+  border-radius: 999px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.88rem;
+  font-weight: 600;
+  transition: 0.15s ease;
+}
+.chip:hover { color: var(--text); border-color: var(--muted); }
+.chip--active {
+  background: rgba(245, 197, 24, 0.12);
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+#sortSelect {
+  padding: 0.6rem 0.9rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--text);
+  font-size: 0.9rem;
+  outline: none;
+}
+#sortSelect:focus { border-color: var(--gold); }
+
+.result-count { color: var(--muted); font-size: 0.85rem; margin-bottom: 1rem; }
+
+/* ============ Game grid ============ */
+.game-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 1.25rem;
+}
+
+.game-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+.game-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(245, 197, 24, 0.5);
+  box-shadow: var(--shadow);
+}
+
+.game-card__thumb {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+  font-size: 1.5rem;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.92);
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+}
+.game-card__thumb::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(11, 15, 26, 0.55), transparent 55%);
+}
+.game-card__prov {
+  position: absolute;
+  top: 10px; left: 10px;
+  z-index: 1;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(6px);
+}
+.game-card__body { padding: 1rem 1.1rem 1.2rem; }
+.game-card__body h3 { font-size: 1rem; line-height: 1.3; }
+
+.game-card__meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-top: 0.7rem;
+}
+.vol-tag {
+  font-size: 0.75rem;
+  color: var(--muted);
+  padding: 0.18rem 0.55rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+}
+.game-card__cta {
+  margin-top: 0.9rem;
+  width: 100%;
+  padding: 0.55rem;
+  border-radius: 9px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-size: 0.87rem;
+  font-weight: 600;
+  transition: 0.15s ease;
+}
+.game-card:hover .game-card__cta { background: var(--gold); color: #1a1405; border-color: var(--gold); }
+
+.empty {
+  text-align: center;
+  padding: 3.5rem 1rem;
+  color: var(--muted);
+}
+.empty span { font-size: 2.2rem; display: block; margin-bottom: 0.6rem; }
+
+/* ============ Notice ============ */
+.notice {
+  padding: 1rem 1.2rem;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  margin-bottom: 1.75rem;
+  border: 1px solid;
+}
+.notice--warn {
+  background: rgba(255, 107, 107, 0.08);
+  border-color: rgba(255, 107, 107, 0.35);
+  color: #ffc9c9;
+}
+.notice--info {
+  background: rgba(76, 194, 255, 0.08);
+  border-color: rgba(76, 194, 255, 0.3);
+  color: #bfe6ff;
+  margin-top: 1.25rem;
+  margin-bottom: 0;
+}
+
+/* ============ RTP table ============ */
+.table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.rtp-table { width: 100%; border-collapse: collapse; min-width: 640px; }
+.rtp-table th,
+.rtp-table td { padding: 0.85rem 1.1rem; text-align: left; }
+.rtp-table thead th {
+  background: var(--surface-2);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  border-bottom: 1px solid var(--border);
+}
+.rtp-table tbody tr { border-bottom: 1px solid var(--border); transition: background 0.12s ease; }
+.rtp-table tbody tr:last-child { border-bottom: 0; }
+.rtp-table tbody tr:hover { background: rgba(245, 197, 24, 0.05); }
+.rtp-table td:first-child { color: var(--muted); font-size: 0.85rem; width: 44px; }
+.rtp-table .game-name { font-weight: 600; }
+
+.rtp-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  min-width: 150px;
+}
+.rtp-bar__track {
+  flex: 1;
+  height: 7px;
+  background: var(--surface-2);
+  border-radius: 999px;
+  overflow: hidden;
+  min-width: 70px;
+}
+.rtp-bar__fill {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--ok), var(--gold));
+}
+.rtp-bar__val { font-weight: 700; font-size: 0.88rem; white-space: nowrap; }
+
+.prov-tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  padding: 0.16rem 0.55rem;
+  border-radius: 999px;
+  border: 1px solid;
+}
+.prov-tag--pragmatic { color: var(--pp); border-color: rgba(76, 194, 255, 0.45); background: rgba(76, 194, 255, 0.1); }
+.prov-tag--pgsoft { color: var(--pg); border-color: rgba(255, 182, 72, 0.45); background: rgba(255, 182, 72, 0.1); }
+
+/* ============ FAQ ============ */
+.faq { display: grid; gap: 0.85rem; }
+.faq__item {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1rem 1.3rem;
+}
+.faq__item summary {
+  cursor: pointer;
+  font-weight: 600;
+  list-style: none;
+  position: relative;
+  padding-right: 2rem;
+}
+.faq__item summary::-webkit-details-marker { display: none; }
+.faq__item summary::after {
+  content: "+";
+  position: absolute;
+  right: 0;
+  top: 0;
+  color: var(--gold);
+  font-size: 1.3rem;
+  transition: transform 0.2s ease;
+}
+.faq__item[open] summary::after { transform: rotate(45deg); }
+.faq__item p { color: var(--muted); font-size: 0.93rem; margin-top: 0.7rem; }
+
+/* ============ Footer ============ */
+.footer { border-top: 1px solid var(--border); background: var(--bg-alt); padding-top: 3.5rem; }
+.footer__inner {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 2.5rem;
+  padding-bottom: 2.5rem;
+}
+.footer__brand p { color: var(--muted); font-size: 0.9rem; margin-top: 1rem; max-width: 46ch; }
+.footer__cols { display: flex; gap: 3rem; justify-content: flex-end; }
+.footer__cols h4 { font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 0.9rem; }
+.footer__cols a { display: block; font-size: 0.92rem; color: var(--text); padding: 0.25rem 0; transition: color 0.15s ease; }
+.footer__cols a:hover { color: var(--gold); }
+
+.footer__bottom {
+  border-top: 1px solid var(--border);
+  padding: 1.5rem 0 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+.footer__bottom a { color: var(--gold); text-decoration: underline; }
+.age-badge {
+  display: grid;
+  place-items: center;
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  border: 2px solid var(--danger);
+  color: var(--danger);
+  font-weight: 800;
+  font-size: 0.8rem;
+  flex: 0 0 auto;
+}
+.copyright { width: 100%; font-size: 0.8rem; opacity: 0.75; }
+
+/* ============ Modal ============ */
+.modal { position: fixed; inset: 0; z-index: 100; display: grid; place-items: center; padding: 1.25rem; }
+.modal[hidden] { display: none; }
+
+.modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(4, 7, 14, 0.78);
+  backdrop-filter: blur(5px);
+  animation: fadeIn 0.2s ease;
+}
+
+.modal__panel {
+  position: relative;
+  width: min(620px, 100%);
+  max-height: 90vh;
+  overflow-y: auto;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+  animation: slideUp 0.25s ease;
+}
+.modal__panel--sm { width: min(440px, 100%); }
+
+.modal__close {
+  position: absolute;
+  top: 12px; right: 12px;
+  z-index: 2;
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: rgba(11, 15, 26, 0.7);
+  color: var(--text);
+  font-size: 0.9rem;
+  transition: 0.15s ease;
+}
+.modal__close:hover { background: var(--danger); border-color: var(--danger); }
+
+.modal__hero {
+  height: 150px;
+  border-radius: 18px 18px 0 0;
+  display: grid;
+  place-items: center;
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  color: rgba(255, 255, 255, 0.94);
+  text-shadow: 0 3px 16px rgba(0, 0, 0, 0.45);
+}
+
+.modal__body { padding: 1.6rem 1.8rem 1.8rem; }
+.modal__body h3 { font-size: 1.5rem; margin-top: 0.5rem; }
+.modal__sub { color: var(--muted); font-size: 0.88rem; margin-top: 0.3rem; margin-bottom: 1.3rem; }
+.modal__body > p { color: var(--muted); font-size: 0.95rem; margin-top: 0.9rem; }
+
+.modal__titleRow { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; }
+
+.spec-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 0.8rem;
+  margin-top: 1.3rem;
+}
+.spec-grid div {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.7rem 0.9rem;
+}
+.spec-grid dt { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
+.spec-grid dd { font-weight: 700; font-size: 0.95rem; margin-top: 0.15rem; }
+
+.tag-row { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-top: 1.1rem; }
+.tag {
+  font-size: 0.76rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  background: rgba(245, 197, 24, 0.1);
+  border: 1px solid rgba(245, 197, 24, 0.3);
+  color: var(--gold);
+  font-weight: 600;
+}
+
+.modal__actions { display: flex; gap: 0.7rem; margin-top: 1.5rem; flex-wrap: wrap; }
+.fineprint { font-size: 0.78rem; color: var(--muted); margin-top: 1rem; }
+
+/* ============ Form ============ */
+.form { display: grid; gap: 0.95rem; }
+.form label { display: grid; gap: 0.4rem; font-size: 0.87rem; font-weight: 600; color: var(--muted); }
+.form input {
+  padding: 0.75rem 0.95rem;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--text);
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.15s ease;
+}
+.form input:focus { border-color: var(--gold); }
+.form input:invalid:not(:placeholder-shown) { border-color: var(--danger); }
+
+.check {
+  grid-template-columns: auto 1fr;
+  align-items: start;
+  gap: 0.65rem;
+  font-weight: 500 !important;
+  line-height: 1.45;
+}
+.check input { width: 17px; height: 17px; margin-top: 2px; accent-color: var(--gold); }
+
+/* ============ Toast ============ */
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 28px;
+  transform: translate(-50%, 80px);
+  z-index: 200;
+  padding: 0.8rem 1.4rem;
+  background: var(--surface-2);
+  border: 1px solid var(--gold);
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  box-shadow: var(--shadow);
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  pointer-events: none;
+  max-width: calc(100% - 2rem);
+  text-align: center;
+}
+.toast.is-visible { transform: translate(-50%, 0); opacity: 1; }
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes slideUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+
+/* ============ Responsive ============ */
+@media (max-width: 940px) {
+  .hero__inner { grid-template-columns: 1fr; }
+  .hero__card { display: none; }
+  .hero { padding: 3.5rem 0 4rem; }
+  .footer__inner { grid-template-columns: 1fr; }
+  .footer__cols { justify-content: flex-start; }
+}
+
+/* ============ Pola permainan (publik) ============ */
+.pola-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.25rem;
+}
+
+.pola-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.3rem 1.4rem;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+.pola-card:hover { transform: translateY(-4px); border-color: rgba(245, 197, 24, 0.5); }
+
+.pola-card__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.9rem;
+}
+.pola-card__head h3 { font-size: 1.05rem; }
+
+.pola-steps {
+  list-style: none;
+  counter-reset: step;
+  display: grid;
+  gap: 0.45rem;
+}
+.pola-steps li {
+  counter-increment: step;
+  display: flex;
+  gap: 0.65rem;
+  align-items: baseline;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.9rem;
+}
+.pola-steps li::before {
+  content: counter(step);
+  flex: 0 0 auto;
+  width: 20px; height: 20px;
+  display: grid; place-items: center;
+  border-radius: 50%;
+  background: rgba(245, 197, 24, 0.15);
+  color: var(--gold);
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+.pola-card__note {
+  margin-top: 0.85rem;
+  font-size: 0.82rem;
+  color: var(--muted);
+  font-style: italic;
+}
+.pola-card__meta {
+  margin-top: 0.9rem;
+  padding-top: 0.7rem;
+  border-top: 1px dashed var(--border);
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+/* ============ Footer link (admin) ============ */
+.footer-link {
+  background: none;
+  border: 0;
+  color: var(--text);
+  font-size: 0.92rem;
+  font-family: inherit;
+  padding: 0.25rem 0;
+  text-align: left;
+  transition: color 0.15s ease;
+}
+.footer-link:hover { color: var(--gold); }
+
+/* ============ Form helpers ============ */
+.form-error {
+  color: var(--danger);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+/* ============ Admin panel ============ */
+.badge--sm { font-size: 0.7rem; padding: 0.22rem 0.65rem; margin-bottom: 0.6rem; }
+
+.modal__panel--wide { width: min(860px, 100%); }
+
+.admin-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.6rem 1.8rem 1rem;
+}
+.admin-head h3 { font-size: 1.4rem; }
+
+.tabs {
+  display: flex;
+  gap: 0.4rem;
+  padding: 0 1.8rem;
+  border-bottom: 1px solid var(--border);
+}
+.tab {
+  background: none;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  color: var(--muted);
+  font-size: 0.92rem;
+  font-weight: 600;
+  padding: 0.65rem 0.9rem;
+  transition: 0.15s ease;
+}
+.tab:hover { color: var(--text); }
+.tab--active { color: var(--gold); border-bottom-color: var(--gold); }
+
+.admin-body { padding: 1.4rem 1.8rem 1.8rem; }
+.tabpane[hidden] { display: none; }
+
+.admin-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+.admin-hint { font-size: 0.82rem; color: var(--muted); }
+
+.btn--sm { padding: 0.45rem 0.9rem; font-size: 0.85rem; }
+
+.btn--danger-ghost {
+  background: transparent;
+  border: 1px solid rgba(255, 107, 107, 0.5);
+  color: var(--danger);
+}
+.btn--danger-ghost:hover { background: rgba(255, 107, 107, 0.12); transform: translateY(-2px); }
+
+/* Form admin */
+.admin-form {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.1rem 1.2rem;
+  margin-bottom: 1.2rem;
+  animation: slideUp 0.2s ease;
+}
+.admin-form[hidden] { display: none; }
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.85rem;
+}
+.form-grid .span2 { grid-column: 1 / -1; }
+.form-grid label {
+  display: grid;
+  gap: 0.35rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+.form-grid input,
+.form-grid select,
+.form-grid textarea {
+  padding: 0.6rem 0.8rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  color: var(--text);
+  font-size: 0.9rem;
+  font-family: inherit;
+  outline: none;
+  resize: vertical;
+  transition: border-color 0.15s ease;
+}
+.form-grid input:focus,
+.form-grid select:focus,
+.form-grid textarea:focus { border-color: var(--gold); }
+
+.admin-form__actions { display: flex; gap: 0.6rem; margin-top: 1rem; }
+
+/* List admin */
+.admin-list { display: grid; gap: 0.6rem; }
+
+.admin-row {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 11px;
+  padding: 0.7rem 0.95rem;
+}
+.admin-row__thumb {
+  flex: 0 0 auto;
+  width: 42px; height: 42px;
+  border-radius: 9px;
+  display: grid;
+  place-items: center;
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.95);
+}
+.admin-row__info { flex: 1; min-width: 0; }
+.admin-row__info strong { display: block; font-size: 0.95rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.admin-row__info span { font-size: 0.78rem; color: var(--muted); }
+.admin-row__actions { display: flex; gap: 0.45rem; flex: 0 0 auto; }
+
+.status-badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  border: 1px solid;
+}
+.status-badge--on { color: var(--ok); border-color: rgba(74, 222, 128, 0.4); background: rgba(74, 222, 128, 0.1); }
+.status-badge--off { color: var(--muted); border-color: var(--border); background: var(--surface-2); }
+
+.admin-actions-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-bottom: 1.2rem;
+}
+
+@media (max-width: 620px) {
+  .admin-head, .tabs, .admin-body { padding-left: 1.1rem; padding-right: 1.1rem; }
+  .tabs { overflow-x: auto; }
+  .form-grid { grid-template-columns: 1fr; }
+  .admin-row { flex-wrap: wrap; }
+  .pola-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 760px) {
+  .nav {
+    position: absolute;
+    top: 68px; left: 0; right: 0;
+    flex-direction: column;
+    gap: 0;
+    background: var(--bg-alt);
+    border-bottom: 1px solid var(--border);
+    padding: 0.5rem 1.25rem 1rem;
+    display: none;
+  }
+  .nav.is-open { display: flex; }
+  .nav__link { padding: 0.75rem 0; border-bottom: 1px solid var(--border); }
+  .nav__link:last-child { border-bottom: 0; }
+  .burger { display: flex; }
+  .header__actions .btn--ghost { display: none; }
+
+  .hero__stats { gap: 1.5rem; }
+  .toolbar { flex-direction: column; align-items: stretch; }
+  .chips { justify-content: flex-start; }
+  .section { padding: 3.5rem 0; }
+  .modal__body { padding: 1.3rem 1.2rem 1.5rem; }
+  .footer__bottom { flex-direction: column; align-items: flex-start; }
+}
+
+</style>
+</head>
+<body>
+
+  <!-- ===== Header ===== -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="#hero" class="logo">
+        <span class="logo__mark">SP</span>
+        <span class="logo__text">Slot<strong>Pedia</strong></span>
+      </a>
+
+      <nav class="nav" id="nav">
+        <a href="#provider" class="nav__link">Provider</a>
+        <a href="#katalog" class="nav__link">Katalog Game</a>
+        <a href="#rtp" class="nav__link">Info RTP</a>
+        <a href="#pola" class="nav__link">Pola</a>
+        <a href="#faq" class="nav__link">FAQ</a>
+      </nav>
+
+      <div class="header__actions">
+        <button class="btn btn--ghost" data-open-modal="loginModal">Masuk</button>
+        <button class="btn btn--primary" data-open-modal="daftarModal">Daftar</button>
+        <button class="burger" id="burger" aria-label="Buka menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===== Hero ===== -->
+    <section class="hero" id="hero">
+      <div class="hero__bg" aria-hidden="true">
+        <span class="orb orb--1"></span>
+        <span class="orb orb--2"></span>
+        <span class="orb orb--3"></span>
+      </div>
+      <div class="container hero__inner">
+        <div class="hero__content">
+          <span class="badge">📚 Situs informasi game slot — bukan operator judi</span>
+          <h1>Katalog &amp; info RTP game slot <span class="grad-text">Pragmatic Play</span> dan <span class="grad-text">PG Soft</span></h1>
+          <p class="hero__sub">
+            Telusuri katalog game, cek RTP teoretis, volatilitas, dan fitur bonus setiap judul.
+            Semua data dikumpulkan dari informasi publik provider.
+          </p>
+          <div class="hero__cta">
+            <a href="#katalog" class="btn btn--primary btn--lg">Lihat Katalog Game</a>
+            <a href="#rtp" class="btn btn--outline btn--lg">Info RTP</a>
+          </div>
+          <div class="hero__stats">
+            <div class="stat"><span class="stat__num" id="statGames">0</span><span class="stat__label">Game terdaftar</span></div>
+            <div class="stat"><span class="stat__num">2</span><span class="stat__label">Provider</span></div>
+            <div class="stat"><span class="stat__num">18+</span><span class="stat__label">Batas usia</span></div>
+          </div>
+        </div>
+
+        <div class="hero__card" aria-hidden="true">
+          <div class="mini-card mini-card--1">
+            <span class="mini-card__prov">Pragmatic Play</span>
+            <strong>Gates of Olympus</strong>
+            <span class="rtp-pill">RTP 96.50%</span>
+          </div>
+          <div class="mini-card mini-card--2">
+            <span class="mini-card__prov">PG Soft</span>
+            <strong>Mahjong Ways 2</strong>
+            <span class="rtp-pill">RTP 96.95%</span>
+          </div>
+          <div class="mini-card mini-card--3">
+            <span class="mini-card__prov">Pragmatic Play</span>
+            <strong>Sweet Bonanza</strong>
+            <span class="rtp-pill">RTP 96.48%</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Provider ===== -->
+    <section class="section" id="provider">
+      <div class="container">
+        <div class="section__head">
+          <h2>Dua provider utama</h2>
+          <p>Fokus kami hanya pada dua provider paling populer di pasar Asia.</p>
+        </div>
+        <div class="provider-grid">
+          <article class="provider-card provider-card--pp">
+            <div class="provider-card__icon">PP</div>
+            <div class="provider-card__body">
+              <h3>Pragmatic Play</h3>
+              <p>Provider dengan portofolio game mekanik sederhana namun adiktif: tumble, pengganda, dan fitur buy-spin. Terkenal lewat judul seperti Gates of Olympus dan Sweet Bonanza.</p>
+              <ul class="provider-card__meta">
+                <li><strong id="ppCount">0</strong> game terdaftar</li>
+                <li>RTP rata-rata <strong>96,5%</strong></li>
+              </ul>
+              <button class="btn btn--outline" data-filter-provider="pragmatic">Lihat game Pragmatic</button>
+            </div>
+          </article>
+
+          <article class="provider-card provider-card--pg">
+            <div class="provider-card__icon">PG</div>
+            <div class="provider-card__body">
+              <h3>PG Soft</h3>
+              <p>Pocket Games Soft dikenal dengan slot vertikal mobile-first, animasi halus, dan tema Asia yang khas seperti Mahjong Ways dan Ways of the Qilin.</p>
+              <ul class="provider-card__meta">
+                <li><strong id="pgCount">0</strong> game terdaftar</li>
+                <li>RTP rata-rata <strong>96,7%</strong></li>
+              </ul>
+              <button class="btn btn--outline" data-filter-provider="pgsoft">Lihat game PG Soft</button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Katalog ===== -->
+    <section class="section section--alt" id="katalog">
+      <div class="container">
+        <div class="section__head">
+          <h2>Katalog game</h2>
+          <p>Cari berdasarkan nama, filter per provider, atau urutkan berdasarkan RTP.</p>
+        </div>
+
+        <div class="toolbar">
+          <div class="search">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+            <input type="search" id="searchInput" placeholder="Cari game… (contoh: Olympus)" aria-label="Cari game" />
+          </div>
+
+          <div class="chips" id="providerChips">
+            <button class="chip chip--active" data-provider="all">Semua</button>
+            <button class="chip" data-provider="pragmatic">Pragmatic Play</button>
+            <button class="chip" data-provider="pgsoft">PG Soft</button>
+          </div>
+
+          <select id="sortSelect" aria-label="Urutkan">
+            <option value="default">Urutan default</option>
+            <option value="rtp-desc">RTP tertinggi</option>
+            <option value="rtp-asc">RTP terendah</option>
+            <option value="name-asc">Nama A–Z</option>
+            <option value="newest">Terbaru</option>
+          </select>
+        </div>
+
+        <p class="result-count" id="resultCount"></p>
+        <div class="game-grid" id="gameGrid"></div>
+        <div class="empty" id="emptyState" hidden>
+          <span>🔍</span>
+          <p>Game tidak ditemukan. Coba kata kunci lain.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== RTP ===== -->
+    <section class="section" id="rtp">
+      <div class="container">
+        <div class="section__head">
+          <h2>Info RTP teoretis</h2>
+          <p>Daftar RTP (Return to Player) yang dipublikasikan provider. Angka ini bersifat statistik jangka panjang, bukan prediksi putaran berikutnya.</p>
+        </div>
+
+        <div class="notice notice--warn">
+          <strong>Baca dulu:</strong> Tidak ada “RTP live” atau “pola gacor” yang bisa memprediksi hasil putaran.
+          Setiap spin dihasilkan RNG (Random Number Generator) yang independen — hasil sebelumnya tidak memengaruhi hasil berikutnya.
+          Angka di bawah hanyalah RTP teoretis dari sisi provider.
+        </div>
+
+        <div class="table-wrap">
+          <table class="rtp-table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Game</th>
+                <th>Provider</th>
+                <th>RTP</th>
+                <th>Volatilitas</th>
+                <th>Max Win</th>
+              </tr>
+            </thead>
+            <tbody id="rtpTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Pola Permainan ===== -->
+    <section class="section section--alt" id="pola">
+      <div class="container">
+        <div class="section__head">
+          <h2>Pola permainan</h2>
+          <p>Disusun dan diperbarui manual oleh admin situs melalui panel admin.</p>
+        </div>
+
+        <div class="notice notice--warn">
+          <strong>Disclaimer wajib dibaca:</strong> pola di bawah adalah <em>kebiasaan bermain</em> yang disusun manual, <strong>bukan bocoran atau prediksi</strong>.
+          Setiap putaran dihasilkan RNG yang independen — tidak ada pola, jam, atau urutan spin apa pun yang bisa memengaruhi hasil.
+          Kelola pola dengan bertanggung jawab dan jangan pernah menyebarkannya sebagai “prediksi pasti”.
+        </div>
+
+        <div class="pola-grid" id="polaGrid"></div>
+        <div class="empty" id="polaEmpty" hidden>
+          <span>🎯</span>
+          <p>Belum ada pola yang dipublikasikan admin.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section class="section" id="faq">
+      <div class="container container--narrow">
+        <div class="section__head">
+          <h2>Pertanyaan umum</h2>
+        </div>
+        <div class="faq" id="faqList">
+          <details class="faq__item">
+            <summary>Apa itu RTP?</summary>
+            <p>RTP (Return to Player) adalah persentase teoretis dari total taruhan yang dikembalikan pemain dalam jangka panjang. RTP 96,5% berarti secara statistik game mengembalikan 96,5 dari setiap 100 yang dipertaruhkan — bukan jaminan Anda menang 96,5%.</p>
+          </details>
+          <details class="faq__item">
+            <summary>Apakah SlotPedia menyediakan permainan uang asli?</summary>
+            <p>Tidak. SlotPedia murni situs katalog dan informasi. Kami tidak menyelenggarakan perjudian, tidak menerima taruhan, dan tidak memproses transaksi apa pun.</p>
+          </details>
+          <details class="faq__item">
+            <summary>Apakah ada “pola gacor” yang bisa dipakai?</summary>
+            <p>Tidak ada pola, jam main, atau aplikasi prediksi yang bisa mengubah hasil RNG. Klaim semacam itu tidak dapat dibuktikan dan sering digunakan untuk menipu. Bermainlah dengan sadar dan hanya dengan uang yang siap hilang.</p>
+          </details>
+          <details class="faq__item">
+            <summary>Di mana saya bisa mencoba game secara gratis?</summary>
+            <p>Sebagian besar provider menawarkan mode demo resmi di situs mereka. Gunakan mode demo untuk memahami mekanik game tanpa risiko finansial.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <a href="#hero" class="logo">
+          <span class="logo__mark">SP</span>
+          <span class="logo__text">Slot<strong>Pedia</strong></span>
+        </a>
+        <p>Situs katalog &amp; informasi game slot. Tidak berafiliasi dengan Pragmatic Play, PG Soft, maupun operator perjudian mana pun.</p>
+      </div>
+      <div class="footer__cols">
+        <div>
+          <h4>Navigasi</h4>
+          <a href="#provider">Provider</a>
+          <a href="#katalog">Katalog</a>
+          <a href="#rtp">Info RTP</a>
+          <a href="#faq">FAQ</a>
+        </div>
+        <div>
+          <h4>Informasi</h4>
+          <a href="#">Tentang kami</a>
+          <a href="#">Kebijakan privasi</a>
+          <a href="#">Disclaimer</a>
+          <button class="footer-link" data-open-modal="adminLoginModal">Admin</button>
+        </div>
+      </div>
+    </div>
+    <div class="container footer__bottom">
+      <span class="age-badge">18+</span>
+      <p>Judi bisa menyebabkan kecanduan. Berhenti bila tidak menyenangkan. <a href="https://www.begambleaware.org" target="_blank" rel="noopener noreferrer">Butuh bantuan?</a></p>
+      <p class="copyright">© 2026 SlotPedia. Semua merek dagang milik pemiliknya masing-masing.</p>
+    </div>
+  </footer>
+
+  <!-- ===== Modal: Detail Game ===== -->
+  <div class="modal" id="gameModal" role="dialog" aria-modal="true" hidden>
+    <div class="modal__backdrop" data-close-modal></div>
+    <div class="modal__panel">
+      <button class="modal__close" data-close-modal aria-label="Tutup">✕</button>
+      <div class="modal__hero" id="modalHero"></div>
+      <div class="modal__body">
+        <div class="modal__titleRow">
+          <div>
+            <span class="prov-tag" id="modalProv"></span>
+            <h3 id="modalName"></h3>
+          </div>
+          <span class="rtp-pill rtp-pill--lg" id="modalRtp"></span>
+        </div>
+        <p id="modalDesc"></p>
+        <dl class="spec-grid">
+          <div><dt>Volatilitas</dt><dd id="modalVol"></dd></div>
+          <div><dt>Max Win</dt><dd id="modalWin"></dd></div>
+          <div><dt>Grid</dt><dd id="modalGrid"></dd></div>
+          <div><dt>Rilis</dt><dd id="modalYear"></dd></div>
+        </dl>
+        <div class="tag-row" id="modalTags"></div>
+        <div class="modal__actions">
+          <button class="btn btn--primary" id="demoBtn">Coba Demo</button>
+          <a href="#rtp" class="btn btn--outline" data-close-modal>Lihat di tabel RTP</a>
+        </div>
+        <p class="fineprint">Demo disediakan oleh provider resmi. Pastikan usia Anda ≥ 18 tahun.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== Modal: Daftar (UI demo) ===== -->
+  <div class="modal" id="daftarModal" role="dialog" aria-modal="true" hidden>
+    <div class="modal__backdrop" data-close-modal></div>
+    <div class="modal__panel modal__panel--sm">
+      <button class="modal__close" data-close-modal aria-label="Tutup">✕</button>
+      <div class="modal__body">
+        <h3>Buat akun</h3>
+        <p class="modal__sub">Formulir contoh (front-end only) — tidak ada data yang dikirim atau disimpan.</p>
+        <form class="form" id="daftarForm" novalidate>
+          <label>
+            Username
+            <input type="text" name="username" placeholder="minimal 4 karakter" required minlength="4" />
+          </label>
+          <label>
+            Email
+            <input type="email" name="email" placeholder="nama@email.com" required />
+          </label>
+          <label>
+            Password
+            <input type="password" name="password" placeholder="minimal 8 karakter" required minlength="8" />
+          </label>
+          <label class="check">
+            <input type="checkbox" name="age" required />
+            <span>Saya berusia ≥ 18 tahun dan setuju dengan syarat &amp; ketentuan.</span>
+          </label>
+          <button type="submit" class="btn btn--primary btn--block">Daftar</button>
+        </form>
+        <div class="notice notice--info">
+          Versi statis ini hanyalah tampilan UI. Fitur akun &amp; transaksi nyata memerlukan backend, verifikasi identitas, dan <strong>lisensi perjudian yang sah</strong> — yang tidak saya kerjakan di situs ini.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== Modal: Masuk (UI demo) ===== -->
+  <div class="modal" id="loginModal" role="dialog" aria-modal="true" hidden>
+    <div class="modal__backdrop" data-close-modal></div>
+    <div class="modal__panel modal__panel--sm">
+      <button class="modal__close" data-close-modal aria-label="Tutup">✕</button>
+      <div class="modal__body">
+        <h3>Masuk</h3>
+        <p class="modal__sub">Formulir contoh (front-end only) — tidak ada data yang dikirim.</p>
+        <form class="form" id="loginForm" novalidate>
+          <label>
+            Email
+            <input type="email" name="email" placeholder="nama@email.com" required />
+          </label>
+          <label>
+            Password
+            <input type="password" name="password" placeholder="password" required />
+          </label>
+          <button type="submit" class="btn btn--primary btn--block">Masuk</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== Modal: Login Admin ===== -->
+  <div class="modal" id="adminLoginModal" role="dialog" aria-modal="true" hidden>
+    <div class="modal__backdrop" data-close-modal></div>
+    <div class="modal__panel modal__panel--sm">
+      <button class="modal__close" data-close-modal aria-label="Tutup">✕</button>
+      <div class="modal__body">
+        <h3>Login Admin</h3>
+        <p class="modal__sub">Masukkan password admin untuk membuka panel konten.</p>
+        <form class="form" id="adminLoginForm" novalidate>
+          <label>
+            Password admin
+            <input type="password" name="password" placeholder="••••••••" required autocomplete="current-password" />
+          </label>
+          <p class="form-error" id="adminLoginError" hidden>Password salah. Coba lagi.</p>
+          <button type="submit" class="btn btn--primary btn--block">Masuk</button>
+        </form>
+        <div class="notice notice--info">
+          Verifikasi berjalan di browser (tanpa server), jadi tidak ada data yang dikirim ke mana pun.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== Modal: Panel Admin ===== -->
+  <div class="modal" id="adminPanelModal" role="dialog" aria-modal="true" hidden>
+    <div class="modal__backdrop" data-close-modal></div>
+    <div class="modal__panel modal__panel--wide">
+      <button class="modal__close" data-close-modal aria-label="Tutup">✕</button>
+
+      <div class="admin-head">
+        <div>
+          <span class="badge badge--sm">⚙️ Panel Admin</span>
+          <h3>Kelola konten situs</h3>
+        </div>
+        <button class="btn btn--ghost btn--sm" id="adminLogout">Keluar</button>
+      </div>
+
+      <div class="tabs" id="adminTabs" role="tablist">
+        <button class="tab tab--active" data-tab="games" role="tab">Game</button>
+        <button class="tab" data-tab="polas" role="tab">Pola</button>
+        <button class="tab" data-tab="data" role="tab">Data &amp; Backup</button>
+      </div>
+
+      <div class="admin-body">
+        <!-- Tab: Game -->
+        <div class="tabpane" data-pane="games">
+          <div class="admin-toolbar">
+            <button class="btn btn--primary btn--sm" id="gameAddBtn">+ Tambah Game</button>
+            <span class="admin-hint" id="gameCountHint"></span>
+          </div>
+
+          <form class="admin-form" id="gameForm" hidden>
+            <input type="hidden" name="id" />
+            <div class="form-grid">
+              <label class="span2">Nama game<input name="name" required placeholder="Gates of Olympus" /></label>
+              <label>Provider
+                <select name="provider">
+                  <option value="pragmatic">Pragmatic Play</option>
+                  <option value="pgsoft">PG Soft</option>
+                </select>
+              </label>
+              <label>RTP (%)<input type="number" name="rtp" step="0.01" min="0" max="100" required placeholder="96.50" /></label>
+              <label>Volatilitas<input name="volatility" placeholder="Tinggi" /></label>
+              <label>Max Win<input name="maxWin" placeholder="5.000x" /></label>
+              <label>Grid<input name="grid" placeholder="6×5" /></label>
+              <label>Tahun rilis<input type="number" name="year" min="2000" max="2035" placeholder="2024" /></label>
+              <label class="span2">Tag — pisahkan dengan koma<input name="tags" placeholder="Tumble, Buy Spin, Free Spin" /></label>
+              <label class="span2">Deskripsi<textarea name="desc" rows="3" placeholder="Deskripsi singkat game…"></textarea></label>
+            </div>
+            <div class="admin-form__actions">
+              <button type="submit" class="btn btn--primary btn--sm">Simpan</button>
+              <button type="button" class="btn btn--ghost btn--sm" data-form-cancel="game">Batal</button>
+            </div>
+          </form>
+
+          <div class="admin-list" id="gameAdminList"></div>
+        </div>
+
+        <!-- Tab: Pola -->
+        <div class="tabpane" data-pane="polas" hidden>
+          <div class="admin-toolbar">
+            <button class="btn btn--primary btn--sm" id="polaAddBtn">+ Tambah Pola</button>
+            <span class="admin-hint" id="polaCountHint"></span>
+          </div>
+
+          <form class="admin-form" id="polaForm" hidden>
+            <input type="hidden" name="id" />
+            <div class="form-grid">
+              <label class="span2">Game
+                <select name="gameId" required id="polaGameSelect">
+                  <option value="">— pilih game —</option>
+                </select>
+              </label>
+              <label class="span2">Langkah pola — satu langkah per baris
+                <textarea name="steps" rows="4" required placeholder="Manual 10× (bet kecil)&#10;Turbo 30×&#10;Quick 20×&#10;Ulangi 2×"></textarea>
+              </label>
+              <label class="span2">Catatan admin<input name="note" placeholder="opsional, mis. ‘khusus versi mobile’" /></label>
+              <label class="check">
+                <input type="checkbox" name="active" checked />
+                <span>Aktif — tampil di halaman publik</span>
+              </label>
+            </div>
+            <div class="admin-form__actions">
+              <button type="submit" class="btn btn--primary btn--sm">Simpan</button>
+              <button type="button" class="btn btn--ghost btn--sm" data-form-cancel="pola">Batal</button>
+            </div>
+          </form>
+
+          <div class="admin-list" id="polaAdminList"></div>
+        </div>
+
+        <!-- Tab: Data -->
+        <div class="tabpane" data-pane="data" hidden>
+          <div class="admin-actions-grid">
+            <button class="btn btn--outline" id="exportBtn">⬇ Export JSON</button>
+            <label class="btn btn--outline">⬆ Import JSON
+              <input type="file" id="importInput" accept="application/json,.json" hidden />
+            </label>
+            <button class="btn btn--danger-ghost" id="resetBtn">↺ Reset ke default</button>
+          </div>
+
+          <dl class="spec-grid">
+            <div><dt>Total game</dt><dd id="infoGames">–</dd></div>
+            <div><dt>Pola aktif</dt><dd id="infoPolas">–</dd></div>
+            <div><dt>Ukuran data</dt><dd id="infoSize">–</dd></div>
+            <div><dt>Terakhir simpan</dt><dd id="infoSaved">–</dd></div>
+          </dl>
+
+          <div class="notice notice--warn">
+            <strong>Keamanan:</strong> login admin ini berjalan 100% di browser tanpa server — ia hanya penyaring ringan, <b>bukan keamanan sungguhan</b>.
+            Untuk keamanan nyata diperlukan backend dengan autentikasi di server.
+          </div>
+          <div class="notice notice--info">
+            Data tersimpan di <code>localStorage</code> browser ini. Pakai <b>Export JSON</b> untuk backup dan <b>Import</b> untuk pindah perangkat.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+/* Data katalog game — RTP adalah angka teoretis yang dipublikasikan provider.
+   Selalu verifikasi ulang ke sumber resmi sebelum publish. */
+
+const PROVIDERS = {
+  pragmatic: { name: "Pragmatic Play", short: "PP", color: "#4cc2ff" },
+  pgsoft: { name: "PG Soft", short: "PG", color: "#ffb648" },
+};
+
+const GAMES = [
+  // ===== Pragmatic Play =====
+  {
+    id: "gates-of-olympus",
+    name: "Gates of Olympus",
+    provider: "pragmatic",
+    rtp: 96.5,
+    volatility: "Tinggi",
+    maxWin: "5.000x",
+    grid: "6×5",
+    year: 2021,
+    tags: ["Tumble", "Pengganda", "Buy Spin"],
+    desc: "Slot bertema Zeus dengan mekanik tumble: simbol menang meledak dan diganti simbol baru. Pengganda hingga 500x bisa muncul di setiap putaran.",
+  },
+  {
+    id: "starlight-princess",
+    name: "Starlight Princess",
+    provider: "pragmatic",
+    rtp: 96.5,
+    volatility: "Tinggi",
+    maxWin: "5.000x",
+    grid: "6×5",
+    year: 2021,
+    tags: ["Tumble", "Pengganda", "Anime"],
+    desc: "Struktur mirip Gates of Olympus dengan tema anime. Simbol pengganda warna-warni dikumpulkan dan dijumlahkan di akhir rangkaian tumble.",
+  },
+  {
+    id: "sweet-bonanza",
+    name: "Sweet Bonanza",
+    provider: "pragmatic",
+    rtp: 96.48,
+    volatility: "Sedang–Tinggi",
+    maxWin: "21.175x",
+    grid: "6×5",
+    year: 2019,
+    tags: ["Cluster", "Free Spin", "Buy Spin"],
+    desc: "Slot permen legendaris dengan pembayaran cluster dan free spin berpengganda hingga 100x. Salah satu game paling ikonik Pragmatic Play.",
+  },
+  {
+    id: "sugar-rush-1000",
+    name: "Sugar Rush 1000",
+    provider: "pragmatic",
+    rtp: 96.5,
+    volatility: "Tinggi",
+    maxWin: "25.000x",
+    grid: "7×7",
+    year: 2024,
+    tags: ["Cluster", "Pengganda Spot", "Buy Spin"],
+    desc: "Versi upgrade Sugar Rush dengan spot pengganda yang menempel di grid, mencapai hingga 1.000x. Volatilitas lebih ekstrem dari pendahulunya.",
+  },
+  {
+    id: "wild-west-gold",
+    name: "Wild West Gold",
+    provider: "pragmatic",
+    rtp: 96.51,
+    volatility: "Tinggi",
+    maxWin: "10.000x",
+    grid: "5×4",
+    year: 2020,
+    tags: ["Sticky Wild", "Free Spin"],
+    desc: "Slot koboi dengan wild lengket (sticky) selama free spin. Simbol sheriff berpengganda menempel hingga fitur berakhir.",
+  },
+  {
+    id: "the-dog-house",
+    name: "The Dog House",
+    provider: "pragmatic",
+    rtp: 96.51,
+    volatility: "Tinggi",
+    maxWin: "6.750x",
+    grid: "5×3",
+    year: 2019,
+    tags: ["Sticky Wild", "Free Spin"],
+    desc: "Slot anjing menggemaskan dengan rumah anjing sebagai simbol wild lengket. Simpel, mudah dipahami, cocok untuk pemain baru.",
+  },
+  {
+    id: "buffalo-king-megaways",
+    name: "Buffalo King Megaways",
+    provider: "pragmatic",
+    rtp: 96.52,
+    volatility: "Tinggi",
+    maxWin: "5.000x",
+    grid: "Megaways",
+    year: 2021,
+    tags: ["Megaways", "Cascading"],
+    desc: "Versi Megaways dari Buffalo King dengan hingga 200.704 cara menang, gulungan berjenjang, dan pengganda naik di free spin.",
+  },
+  {
+    id: "aztec-gems",
+    name: "Aztec Gems",
+    provider: "pragmatic",
+    rtp: 96.52,
+    volatility: "Sedang",
+    maxWin: "500x",
+    grid: "3×3",
+    year: 2018,
+    tags: ["Klasik", "Reel Pengganda"],
+    desc: "Slot 3 gulungan sederhana dengan reel keempat berisi pengganda. Cepat dan mudah dipahami, cocok sebagai game santai.",
+  },
+  {
+    id: "fruit-party",
+    name: "Fruit Party",
+    provider: "pragmatic",
+    rtp: 96.5,
+    volatility: "Tinggi",
+    maxWin: "5.000x",
+    grid: "7×7",
+    year: 2020,
+    tags: ["Cluster", "Pengganda Acak"],
+    desc: "Slot buah dengan cluster pay dan pengganda acak yang bisa dikalikan antar simbol menang hingga 256x.",
+  },
+  {
+    id: "sword-of-ares",
+    name: "Sword of Ares",
+    provider: "pragmatic",
+    rtp: 96.5,
+    volatility: "Tinggi",
+    maxWin: "10.000x",
+    grid: "6×5",
+    year: 2022,
+    tags: ["Tumble", "Pengumpul Simbol"],
+    desc: "Tema dewa perang Yunani dengan mekanik pengumpul: tiga tahap koleksi simbol selama free spin untuk membuka pengganda besar.",
+  },
+
+  // ===== PG Soft =====
+  {
+    id: "mahjong-ways-2",
+    name: "Mahjong Ways 2",
+    provider: "pgsoft",
+    rtp: 96.95,
+    volatility: "Sedang",
+    maxWin: "10.000x",
+    grid: "5×4",
+    year: 2020,
+    tags: ["Pengganda Naik", "Wild", "Asia"],
+    desc: "Lanjutan Mahjong Ways dengan simbol emas yang berubah jadi wild saat menang. Pengganda meningkat 1x di tiap rangkaian kemenangan beruntun.",
+  },
+  {
+    id: "lucky-neko",
+    name: "Lucky Neko Gigablox",
+    provider: "pgsoft",
+    rtp: 96.73,
+    volatility: "Sedang",
+    maxWin: "5.000x",
+    grid: "6×4",
+    year: 2021,
+    tags: ["Gigablox", "Free Spin", "Maneki-neko"],
+    desc: "Slot kucing keberuntungan dengan simbol raksasa Gigablox yang bisa mengisi hingga 4×4 posisi. Kemenangan beruntun menaikkan pengganda.",
+  },
+  {
+    id: "ways-of-the-qilin",
+    name: "Ways of the Qilin",
+    provider: "pgsoft",
+    rtp: 96.72,
+    volatility: "Tinggi",
+    maxWin: "25.000x",
+    grid: "6×6",
+    year: 2021,
+    tags: ["Megaways-ish", "Sticky Wild", "Mitologi"],
+    desc: "Slot mitologi Tiongkok dengan gulungan dinamis dan wild yang bertahan setelah menang. Menampilkan simbol Qilin emas saat free spin.",
+  },
+  {
+    id: "candy-burst",
+    name: "Candy Burst",
+    provider: "pgsoft",
+    rtp: 96.95,
+    volatility: "Sedang",
+    maxWin: "15.000x",
+    grid: "6×6",
+    year: 2020,
+    tags: ["Cluster", "Simbol Misteri"],
+    desc: "Slot permen dengan cluster pay dan tiga simbol khusus (Mystery Sweet, Gummy Bomb, Chewing Gum) yang meledak saling menghubungkan.",
+  },
+  {
+    id: "treasure-of-aztec",
+    name: "Treasure of Aztec",
+    provider: "pgsoft",
+    rtp: 96.71,
+    volatility: "Sedang",
+    maxWin: "25.000x",
+    grid: "6×4",
+    year: 2021,
+    tags: ["Cascading", "Pengganda Naik"],
+    desc: "Petualangan piramida Aztec dengan gulungan berjenjang dan pengganda yang naik tanpa batas selama rangkaian kemenangan.",
+  },
+  {
+    id: "caishen-wins",
+    name: "Caishen Wins",
+    provider: "pgsoft",
+    rtp: 96.72,
+    volatility: "Sedang",
+    maxWin: "20.000x",
+    grid: "6×5",
+    year: 2020,
+    tags: ["Asia", "Putaran Roda", "Wild"],
+    desc: "Slot dewa kekayaan dengan fitur roda keberuntungan untuk menentukan jumlah free spin dan pengganda awal.",
+  },
+  {
+    id: "wild-bandito",
+    name: "Wild Bandito",
+    provider: "pgsoft",
+    rtp: 96.75,
+    volatility: "Tinggi",
+    maxWin: "25.000x",
+    grid: "5×4",
+    year: 2021,
+    tags: ["Sticky Wild", "Kemenangan Beruntun"],
+    desc: "Tema bandit Meksiko dengan simbol berbingkai emas yang berubah jadi wild saat menang. Pengganda naik per putaran beruntun.",
+  },
+  {
+    id: "jurassic-kingdom",
+    name: "Jurassic Kingdom",
+    provider: "pgsoft",
+    rtp: 96.76,
+    volatility: "Tinggi",
+    maxWin: "25.000x",
+    grid: "6×6",
+    year: 2021,
+    tags: ["Dinosaurus", "Pengganda", "Free Spin"],
+    desc: "Slot dinosaurus dengan pengganda yang meningkat di setiap kemenangan saat free spin, dipadu animasi 3D khas PG Soft.",
+  },
+  {
+    id: "galactic-gems",
+    name: "Galactic Gems",
+    provider: "pgsoft",
+    rtp: 96.5,
+    volatility: "Sedang",
+    maxWin: "50.000x",
+    grid: "5×5",
+    year: 2021,
+    tags: ["Respins", "Simbol Terkunci"],
+    desc: "Slot luar angkasa dengan mekanik respin: hancurkan simbol penghalang untuk membuka posisi tambahan dan peluang menang lebih besar.",
+  },
+  {
+    id: "songkran-splash",
+    name: "Songkran Splash",
+    provider: "pgsoft",
+    rtp: 96.69,
+    volatility: "Sedang",
+    maxWin: "5.000x",
+    grid: "5×3",
+    year: 2023,
+    tags: ["Thailand", "Reel Pengganda"],
+    desc: "Tema festival Songkran Thailand dengan reel pengganda di bawah gulungan yang aktif saat simbol menang tepat di atasnya.",
+  },
+  {
+    id: "shaolin-spinners",
+    name: "Shaolin Spinners",
+    provider: "pgsoft",
+    rtp: 96.7,
+    volatility: "Sedang",
+    maxWin: "10.000x",
+    grid: "5×3",
+    year: 2022,
+    tags: ["Asia", "Free Spin"],
+    desc: "Slot bertema biara Shaolin dengan free spin berpengganda dan simbol wild khusus yang muncul di gulungan tengah.",
+  },
+];
+
+/* Pola permainan dipublikasikan admin. Default kosong — admin mengisi lewat Panel Admin.
+   Pola sifatnya seni bermain / kebiasaan pemain, BUKAN prediksi hasil RNG. */
+const POLAS = [];
+
+</script>
+  <script>
+/* SlotPedia — interaksi front-end, panel admin, dan pengaturan pola permainan.
+   Semua data tersimpan di localStorage browser (tanpa backend). */
+
+(function () {
+  "use strict";
+
+  const $ = (sel, ctx = document) => ctx.querySelector(sel);
+  const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
+
+  /* ---------- Konstanta ---------- */
+  const LS_KEY = "slotpedia_data_v1";
+  const SESSION_KEY = "slotpedia_admin_session";
+  const ADMIN_SHA256 = "69e1d5677b28e6944fc294e2acd3ae041cfa47580b9c046496b549f18267e6b0";
+  const ADMIN_FNV = 3079934210;
+  const DEFAULT_DATA = () => ({
+    games: JSON.parse(JSON.stringify(GAMES)),
+    polas: JSON.parse(JSON.stringify(POLAS)),
+    updatedAt: null,
+  });
+
+  /* ---------- Utilitas ---------- */
+  function esc(str) {
+    return String(str ?? "").replace(/[&<>"']/g, (c) => ({
+      "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;",
+    }[c]));
+  }
+
+  function fnv32(str) {
+    let h = 0x811c9dc5;
+    for (let i = 0; i < str.length; i++) {
+      h ^= str.charCodeAt(i);
+      h = Math.imul(h, 0x01000193) >>> 0;
+    }
+    return h >>> 0;
+  }
+
+  async function verifyPassword(pw) {
+    try {
+      if (window.crypto && crypto.subtle && crypto.subtle.digest) {
+        const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(pw));
+        const hex = [...new Uint8Array(buf)].map((b) => b.toString(16).padStart(2, "0")).join("");
+        return hex.toLowerCase() === ADMIN_SHA256;
+      }
+    } catch (e) { /* lanjut ke fallback */ }
+    return fnv32(pw) === ADMIN_FNV;
+  }
+
+  function hashString(str) {
+    let h = 0;
+    for (let i = 0; i < str.length; i++) h = (h * 31 + str.charCodeAt(i)) | 0;
+    return Math.abs(h);
+  }
+
+  const PALETTES = [
+    ["#1e3a8a", "#7c3aed"],
+    ["#0f766e", "#0ea5e9"],
+    ["#7c2d12", "#f59e0b"],
+    ["#831843", "#ec4899"],
+    ["#14532d", "#22c55e"],
+    ["#312e81", "#6366f1"],
+    ["#7f1d1d", "#ef4444"],
+    ["#164e63", "#06b6d4"],
+    ["#4c1d95", "#a855f7"],
+    ["#713f12", "#eab308"],
+  ];
+
+  function gradientFor(name) {
+    const [a, b] = PALETTES[hashString(name) % PALETTES.length];
+    return `linear-gradient(135deg, ${a}, ${b})`;
+  }
+
+  function initials(name) {
+    return String(name)
+      .split(/\s+/)
+      .filter(Boolean)
+      .slice(0, 2)
+      .map((w) => w[0])
+      .join("")
+      .toUpperCase();
+  }
+
+  function providerTag(key) {
+    const p = PROVIDERS[key] || PROVIDERS.pragmatic;
+    return `<span class="prov-tag prov-tag--${p === PROVIDERS.pragmatic ? "pragmatic" : "pgsoft"}">${esc(p.name)}</span>`;
+  }
+
+  function slugify(str) {
+    return String(str).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+  }
+
+  function field(form, name) {
+    return form.querySelector(`[name="${name}"]`);
+  }
+
+  function newGameId(name) {
+    const base = slugify(name) || "game";
+    let id = base;
+    let i = 2;
+    while (Store.games().some((g) => g.id === id)) id = `${base}-${i++}`;
+    return id;
+  }
+
+  /* ---------- Storage aman (fallback saat storage diblokir browser) ---------- */
+  const storage = {
+    get(key) { try { return window.localStorage.getItem(key); } catch (e) { return null; } },
+    set(key, val) { try { window.localStorage.setItem(key, val); return true; } catch (e) { return false; } },
+    remove(key) { try { window.localStorage.removeItem(key); } catch (e) { /* abaikan */ } },
+  };
+  const session = {
+    get(key) { try { return window.sessionStorage.getItem(key); } catch (e) { return null; } },
+    set(key, val) { try { window.sessionStorage.setItem(key, val); return true; } catch (e) { return false; } },
+    remove(key) { try { window.sessionStorage.removeItem(key); } catch (e) { /* abaikan */ } },
+  };
+
+  /* ---------- Store (localStorage) ---------- */
+  const Store = {
+    data: null,
+
+    load() {
+      const raw = storage.get(LS_KEY);
+      if (raw) {
+        try {
+          const p = JSON.parse(raw);
+          if (p && Array.isArray(p.games) && Array.isArray(p.polas)) {
+            this.data = p;
+            return;
+          }
+        } catch (e) { /* data korup -> pakai default */ }
+      }
+      this.data = DEFAULT_DATA();
+    },
+
+    save() {
+      this.data.updatedAt = new Date().toISOString();
+      storage.set(LS_KEY, JSON.stringify(this.data));
+    },
+
+    reset() {
+      storage.remove(LS_KEY);
+      this.data = DEFAULT_DATA();
+    },
+
+    games() { return this.data.games; },
+    polas() { return this.data.polas; },
+
+    gameById(id) { return this.games().find((g) => g.id === id); },
+  };
+
+  /* ---------- State UI ---------- */
+  const state = { query: "", provider: "all", sort: "default" };
+  const ui = { editingGame: null, editingPola: null };
+
+  /* ---------- Render publik ---------- */
+  const grid = $("#gameGrid");
+  const emptyState = $("#emptyState");
+  const resultCount = $("#resultCount");
+
+  function getFilteredGames() {
+    let list = [...Store.games()];
+
+    if (state.provider !== "all") list = list.filter((g) => g.provider === state.provider);
+
+    if (state.query) {
+      const q = state.query.toLowerCase();
+      list = list.filter(
+        (g) =>
+          g.name.toLowerCase().includes(q) ||
+          PROVIDERS[g.provider].name.toLowerCase().includes(q) ||
+          g.tags.some((t) => t.toLowerCase().includes(q))
+      );
+    }
+
+    switch (state.sort) {
+      case "rtp-desc": list.sort((a, b) => b.rtp - a.rtp); break;
+      case "rtp-asc": list.sort((a, b) => a.rtp - b.rtp); break;
+      case "name-asc": list.sort((a, b) => a.name.localeCompare(b.name)); break;
+      case "newest": list.sort((a, b) => b.year - a.year); break;
+    }
+
+    return list;
+  }
+
+  function renderGrid() {
+    const list = getFilteredGames();
+
+    grid.innerHTML = list
+      .map(
+        (g) => `
+      <article class="game-card" data-game="${esc(g.id)}" tabindex="0" role="button" aria-label="Detail ${esc(g.name)}">
+        <div class="game-card__thumb" style="background:${gradientFor(g.name)}">
+          <span class="game-card__prov">${esc(PROVIDERS[g.provider]?.name || "—")}</span>
+          <span>${esc(initials(g.name))}</span>
+        </div>
+        <div class="game-card__body">
+          <h3>${esc(g.name)}</h3>
+          <div class="game-card__meta">
+            <span class="rtp-pill">RTP ${Number(g.rtp).toFixed(2)}%</span>
+            <span class="vol-tag">${esc(g.volatility || "—")}</span>
+          </div>
+          <button class="game-card__cta" type="button">Lihat Detail</button>
+        </div>
+      </article>`
+      )
+      .join("");
+
+    emptyState.hidden = list.length > 0;
+    resultCount.textContent = `Menampilkan ${list.length} dari ${Store.games().length} game`;
+  }
+
+  function renderRtpTable() {
+    const sorted = [...Store.games()].filter((g) => typeof g.rtp === "number").sort((a, b) => b.rtp - a.rtp);
+
+    $("#rtpTableBody").innerHTML = sorted
+      .map((g, i) => {
+        const pct = Math.max(4, Math.min(100, ((g.rtp - 96) / 1) * 100));
+        return `
+      <tr data-game="${esc(g.id)}">
+        <td>${i + 1}</td>
+        <td><span class="game-name">${esc(g.name)}</span></td>
+        <td>${providerTag(g.provider)}</td>
+        <td>
+          <div class="rtp-bar">
+            <div class="rtp-bar__track"><div class="rtp-bar__fill" style="width:${pct}%"></div></div>
+            <span class="rtp-bar__val">${g.rtp.toFixed(2)}%</span>
+          </div>
+        </td>
+        <td>${esc(g.volatility || "—")}</td>
+        <td>${esc(g.maxWin || "—")}</td>
+      </tr>`;
+      })
+      .join("");
+  }
+
+  function renderPola() {
+    const polas = Store.polas()
+      .filter((p) => p.active !== false && Store.gameById(p.gameId))
+      .sort((a, b) => String(b.updatedAt || "").localeCompare(String(a.updatedAt || "")));
+
+    $("#polaGrid").innerHTML = polas
+      .map((p) => {
+        const g = Store.gameById(p.gameId);
+        const steps = String(p.steps || "")
+          .split(/\r?\n/)
+          .map((s) => s.trim())
+          .filter(Boolean);
+        const when = p.updatedAt ? new Date(p.updatedAt).toLocaleDateString("id-ID", { day: "numeric", month: "short", year: "numeric" }) : "";
+        return `
+      <article class="pola-card">
+        <div class="pola-card__head">
+          <h3>${esc(g.name)}</h3>
+          ${providerTag(g.provider)}
+        </div>
+        ${steps.length ? `<ol class="pola-steps">${steps.map((s) => `<li>${esc(s)}</li>`).join("")}</ol>` : `<p class="pola-card__note">Belum ada langkah.</p>`}
+        ${p.note ? `<p class="pola-card__note">📌 ${esc(p.note)}</p>` : ""}
+        ${when ? `<div class="pola-card__meta">Diperbarui ${esc(when)}</div>` : ""}
+      </article>`;
+      })
+      .join("");
+
+    $("#polaEmpty").hidden = polas.length > 0;
+  }
+
+  function updateCounts() {
+    const games = Store.games();
+    $("#statGames").textContent = games.length;
+    $("#ppCount").textContent = games.filter((g) => g.provider === "pragmatic").length;
+    $("#pgCount").textContent = games.filter((g) => g.provider === "pgsoft").length;
+  }
+
+  function renderAll() {
+    renderGrid();
+    renderRtpTable();
+    renderPola();
+    updateCounts();
+    renderAdminPanel();
+  }
+
+  /* ---------- Modal ---------- */
+  let lastFocused = null;
+
+  function openModal(id) {
+    const modal = document.getElementById(id);
+    if (!modal) return;
+    lastFocused = document.activeElement;
+    modal.hidden = false;
+    document.body.style.overflow = "hidden";
+    const focusable = modal.querySelector("input, select, textarea, button:not(.modal__close)");
+    if (focusable) setTimeout(() => focusable.focus(), 50);
+  }
+
+  function closeModal(modal) {
+    if (!modal || modal.hidden) return;
+    modal.hidden = true;
+    if (!$$(".modal:not([hidden])").length) document.body.style.overflow = "";
+    if (lastFocused) lastFocused.focus();
+  }
+
+  function closeAllModals() {
+    $$(".modal").forEach((m) => closeModal(m));
+  }
+
+  function openGameModal(id) {
+    const g = Store.gameById(id);
+    if (!g) return;
+
+    $("#modalHero").style.background = gradientFor(g.name);
+    $("#modalHero").textContent = esc(initials(g.name));
+    $("#modalProv").className = `prov-tag prov-tag--${g.provider}`;
+    $("#modalProv").textContent = (PROVIDERS[g.provider] || { name: "Lainnya" }).name;
+    $("#modalName").textContent = g.name;
+    $("#modalRtp").textContent = `RTP ${Number(g.rtp).toFixed(2)}%`;
+    $("#modalDesc").textContent = g.desc || "";
+    $("#modalVol").textContent = g.volatility || "—";
+    $("#modalWin").textContent = g.maxWin || "—";
+    $("#modalGrid").textContent = g.grid || "—";
+    $("#modalYear").textContent = g.year || "—";
+    $("#modalTags").innerHTML = (g.tags || [])
+      .map((t) => `<span class="tag">${esc(t)}</span>`)
+      .join("");
+
+    $("#demoBtn").onclick = () => {
+      toast(`Demo resmi ${g.name} dapat diakses di situs ${(PROVIDERS[g.provider] || { name: "provider" }).name}.`);
+    };
+
+    openModal("gameModal");
+  }
+
+  /* ---------- Toast ---------- */
+  let toastTimer;
+  function toast(msg) {
+    const el = $("#toast");
+    el.textContent = msg;
+    el.classList.add("is-visible");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => el.classList.remove("is-visible"), 3600);
+  }
+
+  /* ---------- Admin: autentikasi ---------- */
+  function isLoggedIn() {
+    return session.get(SESSION_KEY) === "1";
+  }
+
+  async function handleAdminLogin(e) {
+    e.preventDefault();
+    const form = e.target;
+    const errorEl = $("#adminLoginError");
+    const pwInput = field(form, "password");
+    const pw = pwInput.value;
+
+    const ok = await verifyPassword(pw);
+    if (!ok) {
+      errorEl.hidden = false;
+      pwInput.select();
+      return;
+    }
+
+    session.set(SESSION_KEY, "1");
+    form.reset();
+    errorEl.hidden = true;
+    closeModal($("#adminLoginModal"));
+    openAdminPanel();
+    toast("Berhasil masuk sebagai admin.");
+  }
+
+  function openAdminPanel() {
+    renderAdminPanel();
+    openModal("adminPanelModal");
+  }
+
+  /* ---------- Admin: render daftar & info ---------- */
+  function renderAdminPanel() {
+    renderGameAdminList();
+    renderPolaAdminList();
+    populatePolaGameSelect();
+    renderStorageInfo();
+  }
+
+  function renderStorageInfo() {
+    const games = Store.games();
+    const polas = Store.polas();
+    $("#infoGames").textContent = games.length;
+    $("#infoPolas").textContent = `${polas.filter((p) => p.active !== false).length} aktif / ${polas.length} total`;
+    $("#infoSize").textContent = (JSON.stringify(Store.data).length / 1024).toFixed(1) + " KB";
+    $("#infoSaved").textContent = Store.data.updatedAt
+      ? new Date(Store.data.updatedAt).toLocaleString("id-ID")
+      : "belum disimpan";
+  }
+
+  function renderGameAdminList() {
+    const games = Store.games();
+    $("#gameCountHint").textContent = `${games.length} game`;
+    $("#gameAdminList").innerHTML = games
+      .map(
+        (g) => `
+      <div class="admin-row" data-admin-game="${esc(g.id)}">
+        <div class="admin-row__thumb" style="background:${gradientFor(g.name)}">${esc(initials(g.name))}</div>
+        <div class="admin-row__info">
+          <strong>${esc(g.name)}</strong>
+          <span>${esc(PROVIDERS[g.provider]?.short || "?")} · RTP ${Number(g.rtp).toFixed(2)}% · ${esc(g.volatility || "—")}</span>
+        </div>
+        <div class="admin-row__actions">
+          <button class="btn btn--ghost btn--sm" data-game-edit="${esc(g.id)}">Edit</button>
+          <button class="btn btn--danger-ghost btn--sm" data-game-del="${esc(g.id)}">Hapus</button>
+        </div>
+      </div>`
+      )
+      .join("");
+
+    if (!games.length) $("#gameAdminList").innerHTML = `<p class="admin-hint">Belum ada game.</p>`;
+  }
+
+  function renderPolaAdminList() {
+    const polas = Store.polas();
+    $("#polaCountHint").textContent = `${polas.length} pola`;
+    $("#polaAdminList").innerHTML = polas
+      .map((p) => {
+        const g = Store.gameById(p.gameId);
+        const stepCount = String(p.steps || "").split("\n").filter((s) => s.trim()).length;
+        return `
+      <div class="admin-row" data-admin-pola="${esc(p.id)}">
+        <div class="admin-row__info">
+          <strong>${g ? esc(g.name) : "<em>Game dihapus</em>"}</strong>
+          <span>${stepCount} langkah · ${p.updatedAt ? new Date(p.updatedAt).toLocaleString("id-ID") : "—"} ·
+            <span class="status-badge ${p.active !== false ? "status-badge--on" : "status-badge--off"}">${p.active !== false ? "Aktif" : "Draft"}</span>
+          </span>
+        </div>
+        <div class="admin-row__actions">
+          <button class="btn btn--ghost btn--sm" data-pola-edit="${esc(p.id)}">Edit</button>
+          <button class="btn btn--danger-ghost btn--sm" data-pola-del="${esc(p.id)}">Hapus</button>
+        </div>
+      </div>`;
+      })
+      .join("");
+
+    if (!polas.length) $("#polaAdminList").innerHTML = `<p class="admin-hint">Belum ada pola. Klik “+ Tambah Pola”.</p>`;
+  }
+
+  function populatePolaGameSelect() {
+    const sel = $("#polaGameSelect");
+    sel.innerHTML =
+      `<option value="">— pilih game —</option>` +
+      [...Store.games()]
+        .sort((a, b) => a.name.localeCompare(b.name))
+        .map((g) => `<option value="${esc(g.id)}">${esc(g.name)}</option>`)
+        .join("");
+  }
+
+  /* ---------- Admin: form game ---------- */
+  function gameFormVisible(show) {
+    $("#gameForm").hidden = !show;
+    if (show) $("#gameForm [name='name']").focus();
+  }
+
+  function openGameForm(game) {
+    ui.editingGame = game ? game.id : null;
+    const f = $("#gameForm");
+    f.hidden = false;
+    f.reset();
+    field(f, "id").value = game ? game.id : "";
+    field(f, "name").value = game ? game.name : "";
+    field(f, "provider").value = game ? game.provider : "pragmatic";
+    field(f, "rtp").value = game ? game.rtp : "";
+    field(f, "volatility").value = game ? game.volatility : "";
+    field(f, "maxWin").value = game ? game.maxWin : "";
+    field(f, "grid").value = game ? game.grid : "";
+    field(f, "year").value = game ? game.year : "";
+    field(f, "tags").value = game ? game.tags.join(", ") : "";
+    field(f, "desc").value = game ? game.desc : "";
+    field(f, "name").focus();
+  }
+
+  function closeGameForm() {
+    ui.editingGame = null;
+    $("#gameForm").hidden = true;
+    $("#gameForm").reset();
+  }
+
+  function handleGameFormSubmit(e) {
+    e.preventDefault();
+    const f = e.target;
+
+    const name = field(f, "name").value.trim();
+    if (name.length < 2) return toast("Nama game minimal 2 karakter.");
+
+    const rtp = parseFloat(field(f, "rtp").value);
+    if (isNaN(rtp) || rtp < 0 || rtp > 100) return toast("RTP harus angka 0 – 100.");
+
+    const year = parseInt(field(f, "year").value, 10);
+    const tags = field(f, "tags").value.split(",").map((t) => t.trim()).filter(Boolean);
+
+    const data = {
+      provider: field(f, "provider").value,
+      rtp,
+      volatility: field(f, "volatility").value.trim() || "Sedang",
+      maxWin: field(f, "maxWin").value.trim() || "–",
+      grid: field(f, "grid").value.trim() || "–",
+      year: isNaN(year) ? null : year,
+      tags,
+      desc: field(f, "desc").value.trim(),
+    };
+
+    const games = Store.games();
+    if (ui.editingGame) {
+      const idx = games.findIndex((g) => g.id === ui.editingGame);
+      if (idx >= 0) games[idx] = { ...games[idx], ...data, name };
+    } else {
+      games.push({ id: newGameId(name), name, ...data });
+    }
+
+    Store.save();
+    const wasEditing = !!ui.editingGame;
+    closeGameForm();
+    renderAdminPanel();
+    renderAll();
+    toast(wasEditing ? "Game diperbarui." : "Game ditambahkan.");
+  }
+
+  function handleGameDelete(id) {
+    if (!window.confirm("Hapus game ini? Pola yang menautkannya juga akan ikut dihapus.")) return;
+    Store.data.games = Store.games().filter((g) => g.id !== id);
+    Store.data.polas = Store.polas().filter((p) => p.gameId !== id);
+    Store.save();
+    closeGameForm();
+    renderAll();
+    toast("Game dihapus.");
+  }
+
+  /* ---------- Admin: form pola ---------- */
+  function openPolaForm(pola) {
+    ui.editingPola = pola ? pola.id : null;
+    const f = $("#polaForm");
+    f.hidden = false;
+    f.reset();
+    field(f, "id").value = pola ? pola.id : "";
+    field(f, "gameId").value = pola ? pola.gameId : "";
+    field(f, "steps").value = pola ? pola.steps : "";
+    field(f, "note").value = pola ? (pola.note || "") : "";
+    field(f, "active").checked = pola ? pola.active !== false : true;
+    field(f, "gameId").focus();
+  }
+
+  function closePolaForm() {
+    ui.editingPola = null;
+    $("#polaForm").hidden = true;
+    $("#polaForm").reset();
+  }
+
+  function handlePolaFormSubmit(e) {
+    e.preventDefault();
+    const f = e.target;
+
+    if (!field(f, "gameId").value) return toast("Pilih game dulu.");
+    const steps = String(field(f, "steps").value || "").split(/\r?\n/).map((s) => s.trim()).filter(Boolean);
+    if (!steps.length) return toast("Isi minimal satu langkah pola.");
+
+    const data = {
+      gameId: field(f, "gameId").value,
+      steps: steps.join("\n"),
+      note: field(f, "note").value.trim(),
+      active: field(f, "active").checked,
+      updatedAt: new Date().toISOString(),
+    };
+
+    const polas = Store.polas();
+    if (ui.editingPola) {
+      const idx = polas.findIndex((p) => p.id === ui.editingPola);
+      if (idx >= 0) polas[idx] = { ...polas[idx], ...data };
+    } else {
+      polas.push({ id: `pola-${Date.now()}`, ...data });
+    }
+
+    Store.save();
+    const wasEditing = !!ui.editingPola;
+    closePolaForm();
+    renderAdminPanel();
+    renderAll();
+    toast(wasEditing ? "Pola diperbarui." : "Pola ditambahkan.");
+  }
+
+  function handlePolaDelete(id) {
+    if (!window.confirm("Hapus pola ini?")) return;
+    Store.data.polas = Store.polas().filter((p) => p.id !== id);
+    Store.save();
+    closePolaForm();
+    renderAll();
+    toast("Pola dihapus.");
+  }
+
+  /* ---------- Admin: backup / import / reset ---------- */
+  function handleExport() {
+    const json = JSON.stringify(Store.data, null, 2);
+    try {
+      const blob = new Blob([json], { type: "application/json" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "slotpedia-backup.json";
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
+      toast("Backup JSON diunduh.");
+    } catch (err) {
+      // Fallback untuk browser tanpa object URL (mis. beberapa webview)
+      const win = window.open("", "_blank");
+      win.document.write(`<pre>${esc(json)}</pre>`);
+      toast("Backup dibuka di tab baru — salin isinya.");
+    }
+  }
+
+  function handleImport(file) {
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = () => {
+      try {
+        const parsed = JSON.parse(reader.result);
+        if (!Array.isArray(parsed.games) || !Array.isArray(parsed.polas)) {
+          return toast("File tidak valid: butuh properti games[] dan polas[].");
+        }
+        parsed.games = parsed.games.filter((g) => g && g.id && g.name);
+        parsed.polas = parsed.polas.filter((p) => p && p.id && p.gameId);
+        Store.data = { games: parsed.games, polas: parsed.polas, updatedAt: new Date().toISOString() };
+        Store.save();
+        closeGameForm();
+        closePolaForm();
+        renderAll();
+        toast(`Import sukses: ${parsed.games.length} game, ${parsed.polas.length} pola.`);
+      } catch (err) {
+        toast("File JSON rusak / bukan dari SlotPedia.");
+      }
+    };
+    reader.readAsText(file);
+  }
+
+  function handleReset() {
+    if (!window.confirm("Kembalikan semua data ke default? Perubahan admin akan hilang (expor dulu kalau ingin backup).")) return;
+    Store.reset();
+    closeGameForm();
+    closePolaForm();
+    renderAll();
+    toast("Data dikembalikan ke default.");
+  }
+
+  /* ---------- Watir event admin ---------- */
+  function wireAdminEvents() {
+    $("#adminLoginForm").addEventListener("submit", handleAdminLogin);
+
+    $("#adminLogout").addEventListener("click", () => {
+      session.remove(SESSION_KEY);
+      closeModal($("#adminPanelModal"));
+      toast("Anda keluar dari panel admin.");
+    });
+
+    // Tabs
+    $("#adminTabs").addEventListener("click", (e) => {
+      const tab = e.target.closest(".tab");
+      if (!tab) return;
+      $$(".tab", $("#adminTabs")).forEach((t) => t.classList.toggle("tab--active", t === tab));
+      $$(".tabpane", $("#adminPanelModal")).forEach((pane) => {
+        pane.hidden = pane.dataset.pane !== tab.dataset.tab;
+      });
+    });
+
+    // Game
+    $("#gameAddBtn").addEventListener("click", () => openGameForm(null));
+    $("#gameForm").addEventListener("submit", handleGameFormSubmit);
+    $$("[data-form-cancel='game']").forEach((b) => b.addEventListener("click", closeGameForm));
+    $("#gameAdminList").addEventListener("click", (e) => {
+      const edit = e.target.closest("[data-game-edit]");
+      if (edit) return openGameForm(Store.gameById(edit.dataset.gameEdit));
+      const del = e.target.closest("[data-game-del]");
+      if (del) return handleGameDelete(del.dataset.gameDel);
+    });
+
+    // Pola
+    $("#polaAddBtn").addEventListener("click", () => openPolaForm(null));
+    $("#polaForm").addEventListener("submit", handlePolaFormSubmit);
+    $$("[data-form-cancel='pola']").forEach((b) => b.addEventListener("click", closePolaForm));
+    $("#polaAdminList").addEventListener("click", (e) => {
+      const edit = e.target.closest("[data-pola-edit]");
+      if (edit) {
+        const pola = Store.polas().find((p) => p.id === edit.dataset.polaEdit);
+        return openPolaForm(pola);
+      }
+      const del = e.target.closest("[data-pola-del]");
+      if (del) return handlePolaDelete(del.dataset.polaDel);
+    });
+
+    // Data
+    $("#exportBtn").addEventListener("click", handleExport);
+    $("#importInput").addEventListener("change", (e) => {
+      handleImport(e.target.files[0]);
+      e.target.value = "";
+    });
+    $("#resetBtn").addEventListener("click", handleReset);
+  }
+
+  /* ---------- Watir event umum ---------- */
+  function wireGeneralEvents() {
+    document.addEventListener("click", (e) => {
+      const opener = e.target.closest("[data-open-modal]");
+      if (opener) {
+        const target = opener.dataset.openModal;
+        if (target === "adminLoginModal" && isLoggedIn()) return openAdminPanel();
+        return openModal(target);
+      }
+
+      const closer = e.target.closest("[data-close-modal]");
+      if (closer) {
+        const modal = closer.closest(".modal");
+        if (modal) closeModal(modal);
+      }
+
+      const card = e.target.closest("[data-game]");
+      if (card && !e.target.closest(".modal")) openGameModal(card.dataset.game);
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeAllModals();
+      if ((e.key === "Enter" || e.key === " ") && e.target.classList.contains("game-card")) {
+        e.preventDefault();
+        openGameModal(e.target.dataset.game);
+      }
+    });
+
+    $("#searchInput").addEventListener("input", (e) => {
+      state.query = e.target.value.trim();
+      renderGrid();
+    });
+
+    $("#providerChips").addEventListener("click", (e) => {
+      const chip = e.target.closest(".chip");
+      if (!chip) return;
+      $$(".chip").forEach((c) => c.classList.remove("chip--active"));
+      chip.classList.add("chip--active");
+      state.provider = chip.dataset.provider;
+      renderGrid();
+    });
+
+    $$("[data-filter-provider]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const prov = btn.dataset.filterProvider;
+        $$(".chip").forEach((c) => c.classList.toggle("chip--active", c.dataset.provider === prov));
+        state.provider = prov;
+        renderGrid();
+        document.getElementById("katalog").scrollIntoView({ behavior: "smooth" });
+      });
+    });
+
+    $("#sortSelect").addEventListener("change", (e) => {
+      state.sort = e.target.value;
+      renderGrid();
+    });
+
+    // Form contoh publik (tidak mengirim apa pun)
+    $("#daftarForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+      if (!e.target.checkValidity()) return e.target.reportValidity();
+      e.target.reset();
+      closeAllModals();
+      toast("Ini demo UI — tidak ada data yang dikirim atau disimpan.");
+    });
+
+    $("#loginForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+      if (!e.target.checkValidity()) return e.target.reportValidity();
+      e.target.reset();
+      closeAllModals();
+      toast("Ini demo UI — tidak ada data yang dikirim.");
+    });
+
+    const header = $("#header");
+    window.addEventListener("scroll", () => header.classList.toggle("is-scrolled", window.scrollY > 10), { passive: true });
+
+    const burger = $("#burger");
+    const nav = $("#nav");
+    burger.addEventListener("click", () => nav.classList.toggle("is-open"));
+    nav.addEventListener("click", (e) => {
+      if (e.target.matches(".nav__link")) nav.classList.remove("is-open");
+    });
+  }
+
+  /* ---------- Init ---------- */
+  Store.load();
+  wireGeneralEvents();
+  wireAdminEvents();
+  renderAll();
+})();
+</script>
+</body>
+</html>
