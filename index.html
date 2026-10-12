@@ -986,6 +986,32 @@ input, select { font-family: inherit; }
   .pola-grid { grid-template-columns: 1fr; }
 }
 
+/* ============ Modal demo (iframe) ============ */
+.demo-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.4rem 1.6rem 0.8rem;
+}
+.demo-head h3 { font-size: 1.2rem; margin-top: 0.35rem; }
+.demo-note { font-size: 0.78rem; color: var(--muted); align-self: center; white-space: nowrap; }
+.demo-frame-wrap { padding: 0 1rem 1rem; }
+#demoFrame {
+  width: 100%;
+  height: 72vh;
+  border: 0;
+  border-radius: 12px;
+  background: #000;
+}
+.demo-fineprint { padding: 0 1.6rem 1.4rem; margin: 0; }
+
+@media (max-width: 620px) {
+  #demoFrame { height: 55vh; }
+  .demo-note { white-space: normal; text-align: right; }
+  .demo-head { padding: 1.4rem 1.1rem 0.8rem; }
+}
+
 @media (max-width: 760px) {
   .nav {
     position: absolute;
@@ -1011,6 +1037,177 @@ input, select { font-family: inherit; }
   .footer__bottom { flex-direction: column; align-items: flex-start; }
 }
 
+/* ============ Arena Demo (slot simulasi) ============ */
+.user-chip {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.35rem 0.7rem 0.35rem 0.95rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: 0.82rem;
+}
+.user-chip__name { font-weight: 700; max-width: 120px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.user-chip__bal { color: var(--gold); font-weight: 800; white-space: nowrap; }
+.user-chip__logout {
+  width: 22px; height: 22px;
+  display: grid; place-items: center;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--muted);
+  font-size: 0.7rem;
+}
+.user-chip__logout:hover { color: var(--danger); border-color: var(--danger); }
+
+.arena {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.arena__cab {
+  background: linear-gradient(160deg, var(--surface-2), var(--surface));
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.4rem;
+  box-shadow: var(--shadow);
+}
+
+.cab-reels {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+  padding: 10px;
+  background: #05080f;
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.reel-col { display: grid; gap: 6px; }
+.reel-cell {
+  aspect-ratio: 4 / 5;
+  display: grid;
+  place-items: center;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: clamp(1.1rem, 3.2vw, 2rem);
+  user-select: none;
+}
+.reel-cell.is-win { animation: winPop 0.5s ease; border-color: var(--gold); box-shadow: 0 0 14px rgba(245, 197, 24, 0.45); }
+
+.cab-reels.is-spinning .reel-col { animation: reelSpinner 0.28s linear infinite; }
+.cab-reels.is-spinning .reel-col:nth-child(2) { animation-delay: 0.05s; }
+.cab-reels.is-spinning .reel-col:nth-child(3) { animation-delay: 0.1s; }
+.cab-reels.is-spinning .reel-col:nth-child(4) { animation-delay: 0.15s; }
+.cab-reels.is-spinning .reel-col:nth-child(5) { animation-delay: 0.2s; }
+
+@keyframes reelSpinner {
+  0% { transform: translateY(0); }
+  25% { transform: translateY(-14%); }
+  75% { transform: translateY(14%); }
+  100% { transform: translateY(0); }
+}
+@keyframes winPop {
+  0% { transform: scale(1); }
+  45% { transform: scale(1.35); }
+  100% { transform: scale(1); }
+}
+
+.arena__panel {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.2rem;
+  flex-wrap: wrap;
+}
+.arena__bet {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+.arena__bet select {
+  padding: 0.55rem 0.8rem;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  color: var(--text);
+  font-size: 1rem;
+  font-weight: 700;
+  outline: none;
+}
+.arena__bet select:focus { border-color: var(--gold); }
+.arena__spin { flex: 1; min-width: 140px; padding: 0.8rem; font-size: 1rem; }
+.arena__spin:disabled { opacity: 0.55; cursor: not-allowed; transform: none; box-shadow: none; }
+
+.arena__win {
+  width: 100%;
+  padding: 0.55rem 0.9rem;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: 800;
+  font-size: 1.05rem;
+  background: rgba(245, 197, 24, 0.12);
+  border: 1px solid rgba(245, 197, 24, 0.5);
+  color: var(--gold);
+}
+.arena__win.is-lose {
+  background: rgba(255, 107, 107, 0.08);
+  border-color: rgba(255, 107, 107, 0.4);
+  color: #ffc9c9;
+  font-weight: 600;
+}
+
+.arena__side { display: grid; gap: 0.9rem; }
+
+.arena__bal {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.1rem 1.3rem;
+  display: grid;
+  gap: 0.3rem;
+}
+.arena__bal-label { font-size: 0.78rem; color: var(--muted); }
+.arena__bal-num { font-size: 1.6rem; color: var(--gold); font-weight: 800; }
+.arena__bal .btn { justify-self: start; }
+
+.arena__login-needed { justify-content: center; width: 100%; }
+
+.arena__log {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem 1.2rem;
+  max-height: 260px;
+  overflow-y: auto;
+}
+.arena__log-title { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.07em; color: var(--muted); margin-bottom: 0.6rem; }
+.log-rows { display: grid; gap: 0.4rem; }
+.log-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.6rem;
+  font-size: 0.82rem;
+  padding: 0.4rem 0.6rem;
+  background: var(--surface-2);
+  border-radius: 8px;
+  animation: fadeIn 0.25s ease;
+}
+.log-row b { color: var(--gold); }
+.log-empty { font-size: 0.82rem; color: var(--muted); }
+
+@media (max-width: 860px) {
+  .arena { grid-template-columns: 1fr; }
+  .user-chip__name { max-width: 80px; }
+}
+
 </style>
 </head>
 <body>
@@ -1026,12 +1223,18 @@ input, select { font-family: inherit; }
       <nav class="nav" id="nav">
         <a href="#provider" class="nav__link">Provider</a>
         <a href="#katalog" class="nav__link">Katalog Game</a>
+        <a href="#arena" class="nav__link">Main Demo</a>
         <a href="#rtp" class="nav__link">Info RTP</a>
         <a href="#pola" class="nav__link">Pola</a>
         <a href="#faq" class="nav__link">FAQ</a>
       </nav>
 
       <div class="header__actions">
+        <div class="user-chip" id="userChip" hidden>
+          <span class="user-chip__name" id="userName"></span>
+          <span class="user-chip__bal" id="userBalance"></span>
+          <button class="user-chip__logout" id="logoutBtn" title="Keluar" type="button">✕</button>
+        </div>
         <button class="btn btn--ghost" data-open-modal="loginModal">Masuk</button>
         <button class="btn btn--primary" data-open-modal="daftarModal">Daftar</button>
         <button class="burger" id="burger" aria-label="Buka menu">
@@ -1217,8 +1420,57 @@ input, select { font-family: inherit; }
       </div>
     </section>
 
+    <!-- ===== Arena Demo ===== -->
+    <section class="section" id="arena">
+      <div class="container">
+        <div class="section__head">
+          <h2>Arena main demo</h2>
+          <p>Slot simulasi dengan <strong>kredit virtual</strong>. Login atau daftar gratis untuk mulai main — tanpa uang asli.</p>
+        </div>
+
+        <div class="notice notice--warn">
+          <strong>Mode simulasi:</strong> saldo, taruhan, dan kemenangan di sini adalah kredit virtual semata.
+          Situs ini <b>bukan operator judi</b> — tidak ada deposit, taruhan uang asli, maupun penarikan dana.
+        </div>
+
+        <div class="arena">
+          <div class="arena__cab">
+            <div class="cab-reels" id="reels" aria-label="Gulungan slot"></div>
+            <div class="arena__panel">
+              <label class="arena__bet">
+                <span>Taruhan</span>
+                <select id="betSelect">
+                  <option value="5">5</option>
+                  <option value="10">10</option>
+                  <option value="25">25</option>
+                  <option value="50" selected>50</option>
+                  <option value="100">100</option>
+                  <option value="250">250</option>
+                </select>
+              </label>
+              <button class="btn btn--primary arena__spin" id="spinBtn" disabled type="button">▶ SPIN</button>
+              <div class="arena__win" id="winBanner" hidden></div>
+            </div>
+          </div>
+
+          <aside class="arena__side">
+            <div class="arena__bal">
+              <span class="arena__bal-label">Saldo demo</span>
+              <strong class="arena__bal-num" id="arenaBalance">0</strong>
+              <button class="btn btn--ghost btn--sm" id="topupBtn" type="button">+ Tambah 100.000</button>
+            </div>
+            <button class="btn btn--outline arena__login-needed" id="arenaLoginBtn" data-open-modal="loginModal">Masuk / Daftar dulu untuk main</button>
+            <div class="arena__log">
+              <div class="arena__log-title">Riwayat putaran</div>
+              <div id="spinLog"></div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
     <!-- ===== FAQ ===== -->
-    <section class="section" id="faq">
+    <section class="section section--alt" id="faq">
       <div class="container container--narrow">
         <div class="section__head">
           <h2>Pertanyaan umum</h2>
@@ -1317,7 +1569,7 @@ input, select { font-family: inherit; }
       <button class="modal__close" data-close-modal aria-label="Tutup">✕</button>
       <div class="modal__body">
         <h3>Buat akun</h3>
-        <p class="modal__sub">Formulir contoh (front-end only) — tidak ada data yang dikirim atau disimpan.</p>
+        <p class="modal__sub">Akun demo tersimpan di browser ini (localStorage). Tidak ada data dikirim ke server.</p>
         <form class="form" id="daftarForm" novalidate>
           <label>
             Username
@@ -1335,10 +1587,11 @@ input, select { font-family: inherit; }
             <input type="checkbox" name="age" required />
             <span>Saya berusia ≥ 18 tahun dan setuju dengan syarat &amp; ketentuan.</span>
           </label>
+          <p class="form-error" id="daftarError" hidden></p>
           <button type="submit" class="btn btn--primary btn--block">Daftar</button>
         </form>
         <div class="notice notice--info">
-          Versi statis ini hanyalah tampilan UI. Fitur akun &amp; transaksi nyata memerlukan backend, verifikasi identitas, dan <strong>lisensi perjudian yang sah</strong> — yang tidak saya kerjakan di situs ini.
+          Akun ini hanya untuk mencoba <b>Arena Main Demo</b> dengan saldo kredit virtual — bukan akun judi uang asli.
         </div>
       </div>
     </div>
@@ -1351,16 +1604,17 @@ input, select { font-family: inherit; }
       <button class="modal__close" data-close-modal aria-label="Tutup">✕</button>
       <div class="modal__body">
         <h3>Masuk</h3>
-        <p class="modal__sub">Formulir contoh (front-end only) — tidak ada data yang dikirim.</p>
+        <p class="modal__sub">Masuk dengan akun demo Anda.</p>
         <form class="form" id="loginForm" novalidate>
           <label>
-            Email
-            <input type="email" name="email" placeholder="nama@email.com" required />
+            Username
+            <input type="text" name="username" placeholder="username" required autocomplete="username" />
           </label>
           <label>
             Password
-            <input type="password" name="password" placeholder="password" required />
+            <input type="password" name="password" placeholder="password" required autocomplete="current-password" />
           </label>
+          <p class="form-error" id="loginError" hidden></p>
           <button type="submit" class="btn btn--primary btn--block">Masuk</button>
         </form>
       </div>
@@ -1435,6 +1689,9 @@ input, select { font-family: inherit; }
               <label>Tahun rilis<input type="number" name="year" min="2000" max="2035" placeholder="2024" /></label>
               <label class="span2">Tag — pisahkan dengan koma<input name="tags" placeholder="Tumble, Buy Spin, Free Spin" /></label>
               <label class="span2">Deskripsi<textarea name="desc" rows="3" placeholder="Deskripsi singkat game…"></textarea></label>
+              <label class="span2">URL demo (iframe) — opsional
+                <input name="demo" placeholder="https://… hanya http/https, mis. URL demo resmi provider" />
+              </label>
             </div>
             <div class="admin-form__actions">
               <button type="submit" class="btn btn--primary btn--sm">Simpan</button>
@@ -1504,6 +1761,25 @@ input, select { font-family: inherit; }
           </div>
         </div>
       </div>
+    </div>
+  </div>
+
+  <!-- ===== Modal: Demo game (iframe) ===== -->
+  <div class="modal" id="demoModal" role="dialog" aria-modal="true" hidden>
+    <div class="modal__backdrop" data-close-modal></div>
+    <div class="modal__panel modal__panel--wide">
+      <button class="modal__close" data-close-modal aria-label="Tutup">✕</button>
+      <div class="demo-head">
+        <div>
+          <span class="badge badge--sm">🎮 Mode Demo</span>
+          <h3 id="demoTitle">Demo</h3>
+        </div>
+        <span class="demo-note">Permainan gratis tanpa uang asli.</span>
+      </div>
+      <div class="demo-frame-wrap">
+        <iframe id="demoFrame" title="Mode demo game" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox" allow="autoplay; fullscreen; payment" referrerpolicy="no-referrer" loading="lazy"></iframe>
+      </div>
+      <p class="fineprint demo-fineprint">Demo dimuat dari penyedia/URL yang diatur admin. Jika kosong, admin bisa mengisinya di Panel Admin.</p>
     </div>
   </div>
 
@@ -1930,6 +2206,230 @@ const POLAS = [];
     gameById(id) { return this.games().find((g) => g.id === id); },
   };
 
+  /* ---------- Akun demo (localStorage, kredit virtual) ---------- */
+  const ACCOUNTS_KEY = "slotpedia_accounts_v1";
+  const ACCOUNT_SESSION = "slotpedia_account_session";
+  const START_BALANCE = 100000;
+
+  const Accounts = {
+    list() {
+      const raw = storage.get(ACCOUNTS_KEY);
+      if (raw) {
+        try {
+          const a = JSON.parse(raw);
+          if (Array.isArray(a)) return a;
+        } catch (e) { /* rusak -> kosong */ }
+      }
+      return [];
+    },
+    save(list) { storage.set(ACCOUNTS_KEY, JSON.stringify(list)); },
+    current() {
+      const u = session.get(ACCOUNT_SESSION);
+      if (!u) return null;
+      return this.list().find((a) => a.username === u) || null;
+    },
+    register(username, email, password) {
+      username = username.trim();
+      const list = this.list();
+      if (list.some((a) => a.username.toLowerCase() === username.toLowerCase())) {
+        return { ok: false, error: "Username sudah dipakai. Pilih yang lain." };
+      }
+      if (username.length < 4) return { ok: false, error: "Username minimal 4 karakter." };
+      if (password.length < 8) return { ok: false, error: "Password minimal 8 karakter." };
+      list.push({
+        username,
+        email: email.trim(),
+        passHash: fnv32(username.toLowerCase() + ":" + password),
+        balance: START_BALANCE,
+        createdAt: new Date().toISOString(),
+      });
+      this.save(list);
+      return { ok: true };
+    },
+    login(username, password) {
+      username = username.trim();
+      const acc = this.list().find((a) => a.username.toLowerCase() === username.toLowerCase());
+      if (!acc || acc.passHash !== fnv32(acc.username.toLowerCase() + ":" + password)) {
+        return { ok: false, error: "Username atau password salah." };
+      }
+      session.set(ACCOUNT_SESSION, acc.username);
+      return { ok: true };
+    },
+    logout() {
+      session.remove(ACCOUNT_SESSION);
+      refreshAccountChip();
+      refreshArena();
+    },
+    addBalance(username, delta) {
+      const list = this.list();
+      const i = list.findIndex((a) => a.username === username);
+      if (i < 0) return null;
+      list[i].balance = (list[i].balance || 0) + delta;
+      this.save(list);
+      return list[i].balance;
+    },
+  };
+
+  function fmtNum(n) { return Number(n || 0).toLocaleString("id-ID"); }
+
+  function refreshAccountChip() {
+    const acc = Accounts.current();
+    const chip = $("#userChip");
+    const logBtn = $("#logoutBtn");
+    chip.hidden = !acc;
+    if (acc) {
+      $("#userName").textContent = acc.username;
+      $("#userBalance").textContent = "Rp " + fmtNum(acc.balance);
+    }
+    if (logBtn) logBtn.hidden = !acc;
+  }
+
+  function addFakeBalance(amount) {
+    const acc = Accounts.current();
+    if (!acc) return false;
+    Accounts.addBalance(acc.username, amount);
+    refreshAccountChip();
+    refreshArena();
+    return true;
+  }
+
+  /* ---------- Arena Demo (simulasi slot, kredit virtual) ---------- */
+  const SLOT = {
+    SYMBOLS: [
+      { id: "g", label: "🍇", mult: 2, w: 30 },
+      { id: "c", label: "🍒", mult: 3, w: 28 },
+      { id: "b", label: "🔔", mult: 5, w: 18 },
+      { id: "s", label: "⭐", mult: 10, w: 12 },
+      { id: "d", label: "💎", mult: 20, w: 8 },
+      { id: "7", label: "7️⃣", mult: 50, w: 4 },
+    ],
+    ROWS: 3,
+    COLS: 5,
+    spinTimeout: null,
+    spinning: false,
+
+    totalWeight() { return this.SYMBOLS.reduce((s, x) => s + x.w, 0); },
+
+    pickSymbol() {
+      const r = Math.random() * this.totalWeight();
+      let c = 0;
+      for (const s of this.SYMBOLS) { c += s.w; if (r < c) return s; }
+      return this.SYMBOLS[this.SYMBOLS.length - 1];
+    },
+
+    rollMatrix() {
+      const m = [];
+      for (let r = 0; r < this.ROWS; r++) {
+        const row = [];
+        for (let i = 0; i < this.COLS; i++) row.push(this.pickSymbol());
+        m.push(row);
+      }
+      return m;
+    },
+
+    // Bayar jika simbol sama berurutan dari kolom 0, pada tiap baris (3 payline).
+    computeWins(matrix, bet) {
+      let total = 0;
+      const lines = [];
+      for (let r = 0; r < matrix.length; r++) {
+        const row = matrix[r];
+        let count = 1;
+        while (count < row.length && row[count].id === row[0].id) count++;
+        if (count >= 3) {
+          const mult = row[0].mult * (count === 3 ? 1 : count === 4 ? 2 : 5);
+          lines.push({ row: r, count, mult });
+          total += bet * mult;
+        }
+      }
+      return { total, lines };
+    },
+
+    renderStatic() {
+      let html = "";
+      for (let i = 0; i < this.COLS; i++) {
+        html += `<div class="reel-col">`;
+        for (let r = 0; r < this.ROWS; r++) html += `<div class="reel-cell" data-c="${i}" data-r="${r}"></div>`;
+        html += `</div>`;
+      }
+      $("#reels").innerHTML = html;
+      this.applyMatrix(this.rollMatrix(), [], false);
+    },
+
+    applyMatrix(matrix, winRows, animate) {
+      for (let r = 0; r < matrix.length; r++) {
+        for (let i = 0; i < matrix[r].length; i++) {
+          const cell = document.querySelector(`.reel-cell[data-c="${i}"][data-r="${r}"]`);
+          if (!cell) continue;
+          cell.textContent = matrix[r][i].label;
+          cell.classList.toggle("is-win", !!animate && winRows.includes(r));
+        }
+      }
+    },
+
+    bet() { return parseInt($("#betSelect").value, 10) || 50; },
+
+    spin() {
+      if (this.spinning) return;
+      const acc = Accounts.current();
+      if (!acc) { closeAllModals(); openModal("loginModal"); return toast("Masuk / daftar dulu untuk main."); }
+      const bet = this.bet();
+      if (acc.balance < bet) { refreshArena(); return toast("Saldo demo kurang — klik “Tambah 100.000”."); }
+
+      Accounts.addBalance(acc.username, -bet);
+      refreshAccountChip();
+
+      const result = this.rollMatrix();
+      this.spinning = true;
+      $("#reels").classList.add("is-spinning");
+      $("#spinBtn").disabled = true;
+      $("#winBanner").hidden = true;
+
+      clearTimeout(this.spinTimeout);
+      this.spinTimeout = setTimeout(() => {
+        const { total, lines } = this.computeWins(result, bet);
+        this.applyMatrix(result, lines.map((l) => l.row), true);
+        $("#reels").classList.remove("is-spinning");
+
+        const banner = $("#winBanner");
+        if (total > 0) {
+          Accounts.addBalance(acc.username, total);
+          banner.classList.remove("is-lose");
+          banner.textContent = `🎉 MENANG +${fmtNum(total)} (x${(total / bet).toFixed(1)})`;
+        } else {
+          banner.classList.add("is-lose");
+          banner.textContent = "Belum menang — coba lagi!";
+        }
+        banner.hidden = false;
+        refreshAccountChip();
+        refreshArena();
+        addLog(bet, total);
+        this.spinning = false;
+        $("#spinBtn").disabled = !Accounts.current();
+      }, 750);
+    },
+  };
+
+  function addLog(bet, win) {
+    const box = $("#spinLog");
+    if (!box) return;
+    if (!box.querySelector(".log-rows")) box.innerHTML = `<div class="log-rows"></div>`;
+    const rows = box.querySelector(".log-rows");
+    const row = document.createElement("div");
+    row.className = "log-row";
+    const time = new Date().toLocaleTimeString("id-ID");
+    row.innerHTML = `<span>${time} · bet ${bet}</span><b>${win > 0 ? "+" + fmtNum(win) : "–"}</b>`;
+    rows.prepend(row);
+    while (rows.children.length > 12) rows.lastChild.remove();
+  }
+
+  function refreshArena() {
+    const acc = Accounts.current();
+    $("#arenaBalance").textContent = fmtNum(acc ? acc.balance : 0);
+    $("#spinBtn").disabled = !acc;
+    $("#arenaLoginBtn").hidden = !!acc;
+    $("#topupBtn").disabled = !acc;
+  }
+
   /* ---------- State UI ---------- */
   const state = { query: "", provider: "all", sort: "default" };
   const ui = { editingGame: null, editingPola: null };
@@ -2075,6 +2575,7 @@ const POLAS = [];
   function closeModal(modal) {
     if (!modal || modal.hidden) return;
     modal.hidden = true;
+    if (modal.id === "demoModal") $("#demoFrame").removeAttribute("src");
     if (!$$(".modal:not([hidden])").length) document.body.style.overflow = "";
     if (lastFocused) lastFocused.focus();
   }
@@ -2103,7 +2604,14 @@ const POLAS = [];
       .join("");
 
     $("#demoBtn").onclick = () => {
-      toast(`Demo resmi ${g.name} dapat diakses di situs ${(PROVIDERS[g.provider] || { name: "provider" }).name}.`);
+      if (g.demo && /^https?:\/\//i.test(g.demo)) {
+        const frame = $("#demoFrame");
+        frame.src = g.demo;
+        $("#demoTitle").textContent = `${g.name} — Mode Demo`;
+        openModal("demoModal");
+      } else {
+        toast(`Belum ada URL demo untuk «${g.name}». Admin bisa set di Panel Admin → tab Game → kolom “URL demo”.`);
+      }
     };
 
     openModal("gameModal");
@@ -2248,8 +2756,9 @@ const POLAS = [];
     field(f, "maxWin").value = game ? game.maxWin : "";
     field(f, "grid").value = game ? game.grid : "";
     field(f, "year").value = game ? game.year : "";
-    field(f, "tags").value = game ? game.tags.join(", ") : "";
+    field(f, "tags").value = game ? (game.tags || []).join(", ") : "";
     field(f, "desc").value = game ? game.desc : "";
+    field(f, "demo").value = game ? (game.demo || "") : "";
     field(f, "name").focus();
   }
 
@@ -2272,6 +2781,11 @@ const POLAS = [];
     const year = parseInt(field(f, "year").value, 10);
     const tags = field(f, "tags").value.split(",").map((t) => t.trim()).filter(Boolean);
 
+    const demo = field(f, "demo").value.trim();
+    if (demo && !/^https?:\/\//i.test(demo)) {
+      return toast("URL demo harus diawali http:// atau https://");
+    }
+
     const data = {
       provider: field(f, "provider").value,
       rtp,
@@ -2281,6 +2795,7 @@ const POLAS = [];
       year: isNaN(year) ? null : year,
       tags,
       desc: field(f, "desc").value.trim(),
+      demo,
     };
 
     const games = Store.games();
@@ -2536,22 +3051,62 @@ const POLAS = [];
       renderGrid();
     });
 
-    // Form contoh publik (tidak mengirim apa pun)
+    // Akun demo: daftar
     $("#daftarForm").addEventListener("submit", (e) => {
       e.preventDefault();
-      if (!e.target.checkValidity()) return e.target.reportValidity();
-      e.target.reset();
+      const f = e.target;
+      if (!f.checkValidity()) return;
+      const uname = field(f, "username").value.trim();
+      const res = Accounts.register(uname, field(f, "email").value, field(f, "password").value);
+      if (!res.ok) {
+        const err = $("#daftarError");
+        err.textContent = res.error;
+        err.hidden = false;
+        return;
+      }
+      Accounts.login(uname, field(f, "password").value);
+      f.reset();
+      $("#daftarError").hidden = true;
       closeAllModals();
-      toast("Ini demo UI — tidak ada data yang dikirim atau disimpan.");
+      refreshAccountChip();
+      refreshArena();
+      toast(`Akun dibuat. Selamat datang, ${uname}! Saldo awal ${fmtNum(START_BALANCE)} kredit demo.`);
     });
 
+    // Akun demo: masuk
     $("#loginForm").addEventListener("submit", (e) => {
       e.preventDefault();
-      if (!e.target.checkValidity()) return e.target.reportValidity();
-      e.target.reset();
+      const f = e.target;
+      if (!f.checkValidity()) return;
+      const uname = field(f, "username").value.trim();
+      const res = Accounts.login(uname, field(f, "password").value);
+      if (!res.ok) {
+        const err = $("#loginError");
+        err.textContent = res.error;
+        err.hidden = false;
+        return;
+      }
+      f.reset();
+      $("#loginError").hidden = true;
       closeAllModals();
-      toast("Ini demo UI — tidak ada data yang dikirim.");
+      refreshAccountChip();
+      refreshArena();
+      const acc = Accounts.current();
+      toast(`Halo, ${acc.username}! Saldo ${fmtNum(acc.balance)} kredit demo.`);
     });
+
+    // Logout akun demo
+    $("#logoutBtn").addEventListener("click", () => {
+      Accounts.logout();
+      toast("Anda keluar dari akun demo.");
+    });
+
+    // Arena demo
+    $("#spinBtn").addEventListener("click", () => SLOT.spin());
+    $("#topupBtn").addEventListener("click", () => {
+      if (addFakeBalance(100000)) toast("+100.000 kredit demo ditambahkan.");
+    });
+    $("#betSelect").addEventListener("change", refreshArena);
 
     const header = $("#header");
     window.addEventListener("scroll", () => header.classList.toggle("is-scrolled", window.scrollY > 10), { passive: true });
@@ -2569,6 +3124,9 @@ const POLAS = [];
   wireGeneralEvents();
   wireAdminEvents();
   renderAll();
+  SLOT.renderStatic();
+  refreshAccountChip();
+  refreshArena();
 })();
 </script>
 </body>
