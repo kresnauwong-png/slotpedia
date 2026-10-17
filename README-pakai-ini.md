@@ -7,11 +7,12 @@ SlotPedia - deploy single file
    'URL demo (iframe)' per game dengan URL demo resmi (http/https). Tombol akan
    menampilkan info saja bila URL belum diisi.
 
-BARU - URL demo terisi otomatis:
-- 10 game Pragmatic Play sudah punya URL demo resmi (langsung bisa dimainkan
-  lewat tombol "Coba Demo").
-- 11 game PG Soft belum ada URL demo publik yang stabil; isi manual di
-  Panel Admin -> tab Game -> kolom "URL demo (iframe)" (harus http/https).
+BARU - URL demo terisi otomatis (19 game):
+- 10 game Pragmatic Play -> loader demo resmi Pragmatic.
+- 9 game PG Soft -> pemutar demo resmi PG Soft (public.pg-demo.com).
+- Sisa 2 game (Candy Burst, Shaolin Spinners) belum ada URL demo publik yang
+  stabil; isi manual di Panel Admin -> tab Game -> kolom "URL demo (iframe)"
+  (harus http/https).
 
 BARU - Akun & Arena Main Demo:
 - Klik "Daftar" untuk buat akun demo (tersimpan di browser, bukan server).

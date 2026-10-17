@@ -7,7 +7,7 @@ Website katalog game slot (Pragmatic Play + PG Soft) dengan info RTP teoretis da
 - **Katalog game** — pencarian, filter provider, pengurutan (RTP, nama, tahun), kartu gradasi unik, modal detail.
 - **Info RTP** — tabel terurut dengan bar perbandingan + disclaimer tentang RNG.
 - **Pola permainan** — section publik yang diisi admin melalui panel admin. Draft bisa disimpan tanpa tampil.
-- **Mode Demo (iFrame)** — tombol "Coba Demo" memuat game demo asli via URL. **10 game Pragmatic Play sudah terisi otomatis** dengan loader demo resmi (`demogamesfree.pragmaticplay.net/gs2c/openGame.do?gameSymbol=...`, terverifikasi bisa di-iframe). Game lain (PG Soft) belum punya URL demo publik yang stabil — admin bisa mengisinya di panel admin (kolom "URL demo"). Jika kosong, muncul info saja.
+- **Mode Demo (iFrame)** — tombol "Coba Demo" memuat game demo asli via URL. **19 game sudah terisi otomatis**: 10 Pragmatic Play (loader resmi `demogamesfree.pragmaticplay.net/gs2c/openGame.do?gameSymbol=...`) dan 9 PG Soft (pemutar resmi `public.pg-demo.com/demo/?gi=...`). Semua terverifikasi bisa di-iframe. Sisa game (Candy Burst, Shaolin Spinners) belum ada URL demo publik — admin bisa mengisinya di panel admin (kolom "URL demo"). Jika kosong, muncul info saja.
 - **Panel Admin** (`⚙️`):
   - Login dengan password (verifikasi SHA-256/fnv + session)
   - **CRUD game** — tambah/edit/hapus game beserta RTP, volatilitas, max win, tag, deskripsi, dan **URL demo (iframe)**
